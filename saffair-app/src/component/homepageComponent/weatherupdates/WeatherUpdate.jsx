@@ -169,7 +169,7 @@ export default function WeatherUpdate() {
     }
   };
   const handleKeyPress = (event) => {
-    if (event.key === 'Enter') {
+    if (event.key === "Enter") {
       search();
     }
   };
@@ -201,7 +201,7 @@ export default function WeatherUpdate() {
   }
   if (aqi === 4) {
     aqiValue = "400 - 500";
-    air_quailty = "Very Unhealthy";
+    air_quailty = "Unhealthy";
   }
   if (aqi === 5) {
     aqiValue = "500 - 600";
@@ -224,10 +224,10 @@ export default function WeatherUpdate() {
     } else if (aqi === 3) {
       newAqiValue = "200 - 300";
       newAirQuality = "Unhealthy";
-      imgValue = "./assets/aqiImg/very Unhealthy.jpg";
+      imgValue = "./assets/aqiImg/Unhealthy.jpg";
     } else if (aqi === 4) {
       newAqiValue = "400 - 500";
-      newAirQuality = "Very Unhealthy";
+      newAirQuality = "Unhealthy";
       imgValue = "./assets/aqiImg/Unhealthy.jpg";
     } else if (aqi === 5) {
       newAqiValue = "500 - 600";
@@ -275,10 +275,10 @@ export default function WeatherUpdate() {
                     )}
                     {!weather.error && weather.data && weather.data.main ? (
                       <div className="bold">
-                        <p className="headtext mt-0 ">
-                          {/* <div className="text-sm ml-1 text-left"id="very">Very</div> */}
-                          {air_quailty}
-                        </p>
+                        <div className=" thevery text-sm   text-left" id="very">
+                          {aqi === 4 ? "Very " : ""}
+                        </div>
+                        <p className="headtext  ">{air_quailty}</p>
                         <div className="infopluslogo flex items-center">
                           <FontAwesomeIcon
                             icon={faLocationDot}
