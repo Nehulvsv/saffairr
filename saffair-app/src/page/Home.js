@@ -23,6 +23,8 @@ import AboutUs from "./AboutUS/AboutUs";
 import PrivacypolicyPage from "./Privacypolicy/Privacypolicy";
 import Updates from "./newUpdates/Updates";
 import Showevent from "../component/homepageComponent/Event/Showevent";
+import ContributorPost from "../component/contributorPost/ContributorPost";
+import EditContributorPost from "./blog/pages/editpost/EditContributorPost";
 
 // import { Discuss } from "react-loader-spinner";
 
@@ -79,6 +81,14 @@ export default function Home() {
                   <Route path="/dashboard" element={<Dashboard />} />
                   <Route path="/createblog" element={<CreatePost />} />
                   <Route path="/edit/:postId" element={<EditPost />} />
+                  <Route
+                    path="/editContributor/:postId"
+                    element={<EditContributorPost />}
+                  />
+                  <Route
+                    path="/contributorpost/:userId"
+                    element={<ContributorPost />}
+                  />
                 </Route>
               </Routes>
 

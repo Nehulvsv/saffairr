@@ -14,7 +14,7 @@ import "react-circular-progressbar/dist/styles.css";
 import { useNavigate, useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
 
-export default function EditPost() {
+export default function EditContributorPost() {
   const [file, setFile] = useState(null);
   const [imageUploadProgress, setImageUploadProgress] = useState(null);
   const [imageUploadError, setImageUploadError] = useState(null);
@@ -88,15 +88,16 @@ export default function EditPost() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
+      const updatedFormData = { ...formData, publish: true };
       const res = await fetch(
-        `http://localhost:6600/updatepost/${postId}/${currentUser._id}`,
+        `http://localhost:6600/updatecontributorpost/${postId}`,
         {
           method: "PUT",
           credentials: "include",
           headers: {
             "Content-Type": "application/json",
           },
-          body: JSON.stringify(formData),
+          body: JSON.stringify(updatedFormData),
         }
       );
       const data = await res.json();
@@ -188,7 +189,7 @@ export default function EditPost() {
           }}
         />
         <Button type="submit" gradientDuoTone="purpleToPink">
-          Update post
+          Update post and publish
         </Button>
         {publishError && (
           <Alert className="mt-5" color="failure">

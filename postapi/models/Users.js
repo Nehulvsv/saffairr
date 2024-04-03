@@ -1,6 +1,24 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
-const UsersSchema = mongoose.Schema(
+
+const CoinHistorySchema = new Schema({
+  eventName: {
+    type: String,
+    required: true,
+    maxlength: 100,
+  },
+  coinsEarned: {
+    type: Number,
+    required: true,
+    default: 5,
+  },
+  date: {
+    type: Date,
+    default: Date.now,
+  },
+});
+
+const UsersSchema = new Schema(
   {
     username: {
       type: String,
@@ -42,12 +60,7 @@ const UsersSchema = mongoose.Schema(
       type: Boolean,
       default: false,
     },
-
-    coins: {
-      type: Array,
-      default: 5,
-    },
-
+    coinHistory: [CoinHistorySchema],
     bookmarks: [
       {
         type: Schema.Types.ObjectId,
@@ -56,41 +69,32 @@ const UsersSchema = mongoose.Schema(
     ],
     firstName: {
       type: String,
-      // required: true,
       maxlength: 50,
     },
     lastName: {
       type: String,
-      // required: true,
       maxlength: 50,
     },
     dob: {
       type: Date,
-      // required: true,
     },
     gender: {
       type: String,
     },
-
     country: {
       type: String,
     },
-
     city: {
       type: String,
     },
-
     state: {
       type: String,
     },
-
     pincode: {
       type: String,
     },
-
     bio: {
       type: String,
-      // required: true,
     },
     facebook: {
       type: String,
@@ -108,7 +112,6 @@ const UsersSchema = mongoose.Schema(
       type: Boolean,
       default: false,
     },
-
     instituteName: {
       type: String,
     },
@@ -127,7 +130,6 @@ const UsersSchema = mongoose.Schema(
     endDate: {
       type: String,
     },
-
     position: {
       type: String,
     },
@@ -158,5 +160,22 @@ const UsersSchema = mongoose.Schema(
   },
   { timestamps: true }
 );
+
+// Adding a virtual field to calculate total coins
+UsersSchema.virtual("totalCoins").get(function () {
+  return this.coinHistory.reduce(
+    (total, history) => total + history.coinsEarned,
+    0
+  );
+});
+
+// Pre-save hook to update totalCoins before saving the document
+UsersSchema.pre("save", function (next) {
+  this.totalCoins = this.coinHistory.reduce(
+    (total, history) => total + history.coinsEarned,
+    0
+  );
+  next();
+});
 
 module.exports = mongoose.model("Users", UsersSchema);

@@ -34,6 +34,11 @@ const PostSchema = new Schema(
       required: true,
       unique: true,
     },
+
+    publish: {
+      type: Boolean,
+      default: false,
+    },
     bookmarks: [
       {
         type: String,

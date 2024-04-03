@@ -150,6 +150,48 @@ routes.post("/signout", (req, res, next) => {
   }
 });
 
+// routes.get("/getusers", verifyToken, async (req, res, next) => {
+//   if (!req.user.isAdmin) {
+//     return next(errorHandler(403, "You are not allowed to see all users"));
+//   }
+//   try {
+//     const startIndex = parseInt(req.query.startIndex) || 0;
+//     const limit = parseInt(req.query.limit) || 9;
+//     const sortDirection = req.query.sort === "asc" ? 1 : -1;
+
+//     const users = await Users.find()
+//       .sort({ createdAt: sortDirection })
+//       .skip(startIndex)
+//       .limit(limit);
+
+//     const usersWithoutPassword = users.map((user) => {
+//       const { password, ...rest } = user._doc;
+//       return rest;
+//     });
+
+//     const totalUsers = await Users.countDocuments();
+
+//     const now = new Date();
+
+//     const oneMonthAgo = new Date(
+//       now.getFullYear(),
+//       now.getMonth() - 1,
+//       now.getDate()
+//     );
+//     const lastMonthUsers = await Users.countDocuments({
+//       createdAt: { $gte: oneMonthAgo },
+//     });
+
+//     res.status(200).json({
+//       users: usersWithoutPassword,
+//       totalUsers,
+//       lastMonthUsers,
+//     });
+//   } catch (error) {
+//     next(error);
+//   }
+// });
+
 routes.get("/getusers", verifyToken, async (req, res, next) => {
   if (!req.user.isAdmin) {
     return next(errorHandler(403, "You are not allowed to see all users"));
@@ -159,13 +201,24 @@ routes.get("/getusers", verifyToken, async (req, res, next) => {
     const limit = parseInt(req.query.limit) || 9;
     const sortDirection = req.query.sort === "asc" ? 1 : -1;
 
-    const users = await Users.find()
+    let users = await Users.find()
       .sort({ createdAt: sortDirection })
       .skip(startIndex)
       .limit(limit);
 
+    // Calculate totalCoins for each user
+    users = await Promise.all(
+      users.map(async (user) => {
+        const totalCoins = user.coinHistory.reduce(
+          (total, history) => total + history.coinsEarned,
+          0
+        );
+        return { ...user._doc, totalCoins };
+      })
+    );
+
     const usersWithoutPassword = users.map((user) => {
-      const { password, ...rest } = user._doc;
+      const { password, ...rest } = user;
       return rest;
     });
 
@@ -292,6 +345,36 @@ routes.post("/unbookmark/:postId", async (req, res) => {
     res.status(200).json(user);
   } catch (error) {
     res.status(500).json({ message: "Server Error" });
+  }
+});
+
+//coin management system
+
+routes.put("/add-event/:id", async (req, res) => {
+  try {
+    const { eventName, coinsEarned, date } = req.body;
+
+    // Find the user by username
+    const user = await Users.findOne({ _id: req.params.id });
+
+    if (!user) {
+      return res.status(404).json({ error: "User not found" });
+    }
+
+    // Push event details to the user's coin history
+    user.coinHistory.push({
+      eventName,
+      coinsEarned,
+      date,
+    });
+
+    // Save the updated user document
+    await user.save();
+
+    res.status(200).json({ message: "Event details added successfully" });
+  } catch (error) {
+    console.error("Error adding event details:", error);
+    res.status(500).json({ error: "Internal server error" });
   }
 });
 

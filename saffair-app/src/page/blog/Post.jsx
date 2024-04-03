@@ -10,6 +10,7 @@ export default function Post({
   image,
   content,
   category,
+  slug,
 }) {
   const { currentUser } = useSelector((state) => state.user);
   const scrollToTop = () => {
@@ -20,7 +21,7 @@ export default function Post({
   };
   return (
     <>
-      <div className="postContainer"  onClick={scrollToTop}>
+      <div className="postContainer" onClick={scrollToTop}>
         <div className="card">
           <Link to={`/post/${_id}`}>
             <div className="card__header">

@@ -19,7 +19,6 @@ app.use(express.json());
 app.use(cookieParser());
 
 app.use(cors({ credentials: true, origin: "http://localhost:3000" }));
-app.use("/uploads", express.static(__dirname + "/uploads"));
 
 //DB CONNECTION
 async function connectDB() {
@@ -51,6 +50,7 @@ app.post("/post", verifyToken, async (req, res, next) => {
   // if (!req.user.isAdmin && !req.user.isContributor) {
   //   return next(errorHandler(403, "You are not allowed to create a post"));
   // }
+
   if (!req.body.title || !req.body.content) {
     return next(errorHandler(400, "Please provide all required fields"));
   }
@@ -59,11 +59,14 @@ app.post("/post", verifyToken, async (req, res, next) => {
     .join("-")
     .toLowerCase()
     .replace(/[^a-zA-Z0-9-]/g, "");
+
   const newPost = new Post({
     ...req.body,
     slug,
     userId: req.user.id,
+    publish: req.user.isAdmin ? true : false,
   });
+
   try {
     const savedPost = await newPost.save();
     res.status(201).json(savedPost);
@@ -174,6 +177,7 @@ app.put("/updatepost/:postId/:userId", verifyToken, async (req, res, next) => {
           content: req.body.content,
           category: req.body.category,
           image: req.body.image,
+          publish: req.body.publish,
         },
       },
       { new: true }
@@ -183,6 +187,36 @@ app.put("/updatepost/:postId/:userId", verifyToken, async (req, res, next) => {
     next(error);
   }
 });
+
+//api for contributor blog edit and post
+
+app.put(
+  "/updatecontributorpost/:postId",
+  verifyToken,
+  async (req, res, next) => {
+    // if (!req.user.isAdmin) {
+    //   return next(errorHandler(403, "You are not allowed to update this post"));
+    // }
+    try {
+      const updatedPost = await Post.findByIdAndUpdate(
+        req.params.postId,
+        {
+          $set: {
+            title: req.body.title,
+            content: req.body.content,
+            category: req.body.category,
+            image: req.body.image,
+            publish: req.body.publish,
+          },
+        },
+        { new: true }
+      );
+      res.status(200).json(updatedPost);
+    } catch (error) {
+      next(error);
+    }
+  }
+);
 
 // Route to fetch all bookmarks of a user
 app.get("/bookmarks/:userId", async (req, res) => {

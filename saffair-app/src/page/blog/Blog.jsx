@@ -1,16 +1,13 @@
 import { useEffect, useState, useContext } from "react";
 import Post from "./Post";
 import "./blog.css";
-import { Navbar,Button } from "flowbite-react";
+import { Navbar, Button } from "flowbite-react";
 import { Link } from "react-router-dom";
 import { SearchpostContext } from "../Home";
-import { Breadcrumb, Spinner,Tabs } from "flowbite-react";
+import { Breadcrumb, Spinner, Tabs } from "flowbite-react";
 import { HiHome } from "react-icons/hi";
 
-
 import "./../../component/homepageComponent/weatherupdates/weatherupdate.css";
-
-
 
 export default function Blog() {
   const { search } = useContext(SearchpostContext);
@@ -20,7 +17,7 @@ export default function Blog() {
 
   useEffect(() => {
     // Fetch posts from the server
-    setLoading(true);
+    // setLoading(true);
     fetch("http://localhost:6600/post")
       .then((response) => {
         if (!response.ok) {
@@ -30,7 +27,7 @@ export default function Blog() {
       })
       .then((fetchedPosts) => {
         const newsPosts = fetchedPosts.filter(
-          (post) => post.readingType === "Blog"
+          (post) => post.readingType === "Blog" && post.publish === true
         );
 
         setPosts(newsPosts);
@@ -63,20 +60,24 @@ export default function Blog() {
         ) : (
           <>
             <Navbar fluid rounded className="flex justify-center ">
-      <Navbar.Collapse  >
-        <Link to="/blog">
-        <Navbar.Link className="text-xl border-b-2 border-customBlue " active  >
-          Blogs
-        </Navbar.Link>
-        </Link>
-        <Link to="/news">
-        <Navbar.Link className="text-xl  ">News</Navbar.Link></Link>
-        <Link to="/Update">
-        <Navbar.Link className="text-xl ">Updates</Navbar.Link></Link>
-        
-      </Navbar.Collapse>
-    </Navbar>
-     
+              <Navbar.Collapse>
+                <Link to="/blog">
+                  <Navbar.Link
+                    className="text-xl border-b-2 border-customBlue "
+                    active
+                  >
+                    Blogs
+                  </Navbar.Link>
+                </Link>
+                <Link to="/news">
+                  <Navbar.Link className="text-xl  ">News</Navbar.Link>
+                </Link>
+                <Link to="/Update">
+                  <Navbar.Link className="text-xl ">Updates</Navbar.Link>
+                </Link>
+              </Navbar.Collapse>
+            </Navbar>
+
             <Breadcrumb style={{ fontFamily: "myFont" }}>
               <Link to={"/"} className="link">
                 {" "}

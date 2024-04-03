@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { HiOutlineExclamationCircle } from "react-icons/hi";
 import { FaCheck, FaTimes } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 export default function DashUsers() {
   const { currentUser } = useSelector((state) => state.user);
@@ -109,6 +110,7 @@ export default function DashUsers() {
               <Table.HeadCell>Username</Table.HeadCell>
               <Table.HeadCell>Email</Table.HeadCell>
               <Table.HeadCell>Contributors</Table.HeadCell>
+              <Table.HeadCell>posts</Table.HeadCell>
               <Table.HeadCell>Delete</Table.HeadCell>
               <Table.HeadCell>Make Contributor</Table.HeadCell> {/* Added */}
             </Table.Head>
@@ -135,6 +137,9 @@ export default function DashUsers() {
                       ) : (
                         <FaTimes className="text-red-500" />
                       )}
+                    </Table.Cell>
+                    <Table.Cell>
+                      <Link to={`/contributorpost/${user._id}`}>view</Link>
                     </Table.Cell>
                     <Table.Cell>
                       <span
