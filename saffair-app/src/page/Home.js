@@ -20,6 +20,7 @@ import Dashboard from "./dashboard/Dashboard";
 import PrivateRoute from "../component/PrivateRoute";
 import OnlyAdminPrivateRoute from "../component/onlyAdminPrivateRoute";
 import AboutUs from "./AboutUS/AboutUs";
+import ContactUs from "./ContactUs/ContactUs";
 import PrivacypolicyPage from "./Privacypolicy/Privacypolicy";
 import Updates from "./newUpdates/Updates";
 import Showevent from "../component/homepageComponent/Event/Showevent";
@@ -66,6 +67,7 @@ export default function Home() {
                 <Route path="/weather" element={<Weather />} />
                 <Route path="/privacypolicy" element={<PrivacypolicyPage />} />
                 <Route path="/aboutus" element={<AboutUs />} />
+                <Route path="/contactus" element={<ContactUs />} />
                 {/* <div style={{ minHeight: "800px" }}> */}
                 <Route path="/post/:id" element={<PostPage />} />
                 {/* </div> */}

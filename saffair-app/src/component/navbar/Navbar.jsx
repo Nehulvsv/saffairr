@@ -157,6 +157,11 @@ export default function Navbar({ _id }) {
               About Us
             </a>
           </Link>
+          <Link to="/contactus">
+            <a className="centerItem" onClick={scrollToTop}>
+              Contact Us
+            </a>
+          </Link>
           {/* <Link to="/privacypolicy">
             <a className="centerItem">Privacy Policy</a>
           </Link> */}

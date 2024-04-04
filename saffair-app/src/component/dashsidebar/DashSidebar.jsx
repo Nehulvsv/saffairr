@@ -6,8 +6,10 @@ import {
   HiOutlineUserGroup,
   HiAnnotation,
   HiChartPie,
+ 
   HiShoppingBag,
 } from "react-icons/hi";
+import { MdEvent } from "react-icons/md";
 import { FaClipboardList } from "react-icons/fa";
 
 // import { IoIosPeople } from "react-icons/io";
@@ -112,6 +114,11 @@ export default function DashSidebar() {
           {!currentUser.isAdmin && (
             <Link to="/dashboard?tab=mycoins" onClick={scrollToTop}>
               <Sidebar.Item icon={BiSolidCoin}>My Coins</Sidebar.Item>
+            </Link>
+          )}
+          {!currentUser.isAdmin && (
+            <Link to="/dashboard?tab=myevent" onClick={scrollToTop}>
+             <Sidebar.Item icon={MdEvent}>My Events</Sidebar.Item>
             </Link>
           )}
           {!currentUser.isAdmin && !currentUser.isContributor && (
