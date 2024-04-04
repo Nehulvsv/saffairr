@@ -169,7 +169,7 @@ export default function WeatherUpdate() {
     }
   };
   const handleKeyPress = (event) => {
-    if (event.key === 'Enter') {
+    if (event.key === "Enter") {
       search();
     }
   };
@@ -275,10 +275,10 @@ export default function WeatherUpdate() {
                     )}
                     {!weather.error && weather.data && weather.data.main ? (
                       <div className="bold">
-                        <div className=" thevery text-sm   text-left"  id="very">{aqi === 4 ? 'Very ' : ''}</div>
-                        <p className="headtext  ">
-                       {air_quailty}
-                        </p>
+                        <div className=" thevery text-sm   text-left" id="very">
+                          {aqi === 4 ? "Very " : ""}
+                        </div>
+                        <p className="headtext  ">{air_quailty}</p>
                         <div className="infopluslogo flex items-center">
                           <FontAwesomeIcon
                             icon={faLocationDot}
