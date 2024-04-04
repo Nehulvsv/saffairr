@@ -132,7 +132,7 @@ export default function Navbar({ _id }) {
           <a className="centerItem" onClick={scrollToTop}>
             Calculator
           </a>
-          <div className="hidden lg:flex items-center gap-4">
+          <div className="centerItem lg:flex items-center gap-4">
             <Dropdown
               label="Readings"
               size="2xl"

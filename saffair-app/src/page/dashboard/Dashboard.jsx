@@ -8,6 +8,7 @@ import DashUsers from "../../component/dashusers/DashUsers";
 import DashboardComp from "../../component/DashboardComp.jsx/DashboardComp";
 import Contributors from "../../component/contributors/Contributors";
 import Mycoins from "../../component/mycoins/Mycoins";
+import MyEvent from "../../component/myevent/MyEvent";
 import Dashcontributors from "../../component/dashcontributors/Dashcontributors";
 import DashReqContributor from "../../component/dashReqContributor/DashReqContributor";
 import DashComments from "../../component/dashComments/DashComments";
@@ -36,6 +37,7 @@ export default function Dashboard() {
       {tab === "dash" && <DashboardComp />}
       {tab === "be-a-contributor" && <Contributors />}
       {tab === "mycoins" && <Mycoins />}
+      {tab === "myevent" && <MyEvent />}
       {tab === "reqCon" && <DashReqContributor />}
       {tab === "comments" && <DashComments />}
       {tab === "event" && <DashEvent />}

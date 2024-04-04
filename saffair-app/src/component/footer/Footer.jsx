@@ -32,8 +32,13 @@ export default function Home() {
                   Privacy Policy
                 </a>
               </Link>
-
-              <li>Contact Us</li>
+<br/>
+              <Link to="/contactus">
+                <a className="centerItem1" onClick={scrollToTop}>
+                  Contact Us
+                </a>
+              </Link>
+              <br/>
               <Link to="/aboutus">
                 <a className="centerItem1" onClick={scrollToTop}>
                   About Us
