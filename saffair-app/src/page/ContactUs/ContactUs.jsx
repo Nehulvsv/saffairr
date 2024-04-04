@@ -2,6 +2,9 @@ import React, { useState } from "react";
 import { Button, Spinner, TextInput, Textarea } from "flowbite-react";
 import { useDispatch, useSelector } from "react-redux";
 import { updateStart, updateSuccess, updateFailure } from "../../redux/user/userSlice";
+import emailjs from '@emailjs/browser';
+
+
 
 const ContactUs = () => {
   const [msg, setmsg] = useState("");
@@ -13,11 +16,35 @@ const ContactUs = () => {
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.id]: e.target.value });
   };
+  const [uname,setName] = useState('');
+  const [uemail,setEmail] = useState('');
+  const [umessage,setMessage] = useState('');
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setShowSuccessMessage(true);
+    const serviceID = 'service_y83p4py';
+    const templateID = 'template_fuis09h';
+    const publicKey = 'GuGLkhlrvX2f8Kzoq';
+
+    const templateParams = {
+      from_name: uname,
+      email: uemail,
+      to_name:'Team Saffair',
+      message: umessage,
+    };
+    emailjs.send(serviceID,templateID,templateParams,publicKey)
+    .then((response) => {
+      console.log('Email sent successfully', response);
+      setName('');
+      setEmail('');
+      setMessage('');
+    })
+    .catch((error) => {
+      console.error('error sending email:',error);
+    });
   };
+
+
 
   return (
     <div
@@ -72,10 +99,11 @@ const ContactUs = () => {
               <TextInput
                 type="text"
                 id="name"
+                value={uname}
                 placeholder="name"
                 maxLength={200}
                 required
-                onChange={handleChange}
+                onChange={(e) => setName(e.target.value)}
               />
             </div>
             <div>
@@ -85,9 +113,10 @@ const ContactUs = () => {
               <TextInput
                 type="email"
                 id="email"
+                value={uemail}
                 placeholder="email"
                 required
-                onChange={handleChange}
+                onChange={(e) => setEmail(e.target.value)}
               />
             </div>
             <div>
@@ -99,12 +128,10 @@ const ContactUs = () => {
                 rows="4"
                 cols="40"
                 id="msg"
-                value={msg}
-                onChange={(e) => setmsg(e.target.value)}
+                value={umessage}
+                onChange={(e) => setMessage(e.target.value)}
               />
-              <p className="text-gray-500 text-xs">
-                {200 - msg.length} characters remaining
-              </p>
+              
             </div>
             <br />
             <Button
