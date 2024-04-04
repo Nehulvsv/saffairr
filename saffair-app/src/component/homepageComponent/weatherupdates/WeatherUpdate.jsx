@@ -17,6 +17,7 @@ import { Button, Spinner } from "flowbite-react";
 import { WeatherImageContext } from "../../../page/Home";
 
 export default function WeatherUpdate() {
+  const [errormessage, setErormessage] = useState(false);
   const { airData, setAirData } = useContext(WeatherImageContext);
   const { newCity, setNewCity } = useContext(SearchContext);
   const { location, setLocation } = useContext(cityContext);
@@ -135,6 +136,11 @@ export default function WeatherUpdate() {
           appid: api_key,
         },
       });
+      // console.log(axiosResponse.code);
+      // if (axiosResponse.code === 404) {
+      //   alert("city  not found");
+      //   setLoading(false);
+      // }
 
       // Update weather state with fetched data
       setWeather({ data: axiosResponse.data, error: false });
@@ -159,12 +165,13 @@ export default function WeatherUpdate() {
         setLoading(false);
       } else {
         // If coordinates are not available, display an error message
-        alert("City not found!");
       }
     } catch (error) {
       // Handle errors
       console.error("Error fetching weather data:", error);
       setWeather({ ...weather, data: {}, error: true });
+      setLoading(false);
+      setErormessage(true);
       setInput("");
     }
   };
@@ -319,6 +326,7 @@ export default function WeatherUpdate() {
                       onChange={(event) => setInput(event.target.value)}
                       onKeyPress={handleKeyPress}
                     />
+                    {errormessage ? "city not found" : ""}
                     <Button
                       outline
                       color="light"
