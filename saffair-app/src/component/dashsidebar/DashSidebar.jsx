@@ -6,7 +6,6 @@ import {
   HiOutlineUserGroup,
   HiAnnotation,
   HiChartPie,
- 
   HiShoppingBag,
 } from "react-icons/hi";
 import { MdEvent } from "react-icons/md";
@@ -52,7 +51,7 @@ export default function DashSidebar() {
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
-      behavior: "smooth" 
+      behavior: "smooth",
     });
   };
   return (
@@ -118,7 +117,7 @@ export default function DashSidebar() {
           )}
           {!currentUser.isAdmin && (
             <Link to="/dashboard?tab=myevent" onClick={scrollToTop}>
-             <Sidebar.Item icon={MdEvent}>My Events</Sidebar.Item>
+              <Sidebar.Item icon={MdEvent}>My Events</Sidebar.Item>
             </Link>
           )}
           {!currentUser.isAdmin && !currentUser.isContributor && (
@@ -153,13 +152,13 @@ export default function DashSidebar() {
                 </Sidebar.Item>
               </Link>
               <Sidebar.Collapse icon={HiOutlineUserGroup} label=" Contributors">
-                <Link to="/dashboard?tab=contributors"  onClick={scrollToTop}>
+                <Link to="/dashboard?tab=contributors" onClick={scrollToTop}>
                   {" "}
                   <Sidebar.Item icon={FaClipboardList}>
                     Total Contributors
                   </Sidebar.Item>
                 </Link>
-                <Link to="/dashboard?tab=reqCon"  onClick={scrollToTop}>
+                <Link to="/dashboard?tab=reqCon" onClick={scrollToTop}>
                   <Sidebar.Item
                     action={tab === "reqCon"}
                     icon={HiOutlineUserGroup}
@@ -168,7 +167,7 @@ export default function DashSidebar() {
                   </Sidebar.Item>
                 </Link>
               </Sidebar.Collapse>
-              <Link to="/dashboard?tab=comments"  onClick={scrollToTop}>
+              <Link to="/dashboard?tab=comments" onClick={scrollToTop}>
                 <Sidebar.Item
                   active={tab === "comments"}
                   icon={HiAnnotation}
@@ -177,7 +176,7 @@ export default function DashSidebar() {
                   Comments
                 </Sidebar.Item>
               </Link>
-              <Link to="/dashboard?tab=event"  onClick={scrollToTop}>
+              <Link to="/dashboard?tab=event" onClick={scrollToTop}>
                 <Sidebar.Item
                   active={tab === "event"}
                   icon={HiAnnotation}
@@ -189,7 +188,7 @@ export default function DashSidebar() {
             </>
           )}
           {currentUser && (
-            <Link to="/dashboard?tab=dashbookmark"  onClick={scrollToTop}>
+            <Link to="/dashboard?tab=dashbookmark" onClick={scrollToTop}>
               <Sidebar.Item
                 active={tab === "dashbookmark" || !tab}
                 icon={HiChartPie}
