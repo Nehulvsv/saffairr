@@ -188,6 +188,7 @@ export default function EditContributorPost() {
             setFormData({ ...formData, content: value });
           }}
         />
+        <TextInput></TextInput>
         <Button type="submit" gradientDuoTone="purpleToPink">
           Update post and publish
         </Button>
