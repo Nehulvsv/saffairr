@@ -91,6 +91,7 @@ routes.put("/update/:userId", verifyToken, async (req, res, next) => {
 
   try {
     let updateFields = {};
+
     if (req.body.password) {
       if (req.body.password.length < 6) {
         return res
@@ -119,6 +120,9 @@ routes.put("/update/:userId", verifyToken, async (req, res, next) => {
           .json({ error: "Username can only contain letters and numbers" });
       }
       updateFields.username = req.body.username;
+      updateFields.firstName = req.body.firstName;
+      updateFields.lastName = req.body.lastName;
+      updateFields.bio = req.body.bio;
     }
     // Add other fields to updateFields as needed
 
