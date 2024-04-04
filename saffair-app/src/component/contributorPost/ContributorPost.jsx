@@ -4,6 +4,7 @@ import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { HiOutlineExclamationCircle } from "react-icons/hi";
 import { useParams } from "react-router-dom";
+import { FaCheck, FaTimes } from "react-icons/fa";
 
 export default function ContributorPost() {
   const { userId } = useParams();
@@ -85,6 +86,7 @@ export default function ContributorPost() {
               <Table.HeadCell>Date updated</Table.HeadCell>
               <Table.HeadCell>Post image</Table.HeadCell>
               <Table.HeadCell>Post title</Table.HeadCell>
+              <Table.HeadCell>approved</Table.HeadCell>
               <Table.HeadCell>Category</Table.HeadCell>
               <Table.HeadCell>Delete</Table.HeadCell>
               <Table.HeadCell>
@@ -113,6 +115,13 @@ export default function ContributorPost() {
                     >
                       {post.title}
                     </Link>
+                  </Table.Cell>
+                  <Table.Cell>
+                    {post.publish ? (
+                      <FaCheck className="text-green-500" />
+                    ) : (
+                      <FaTimes className="text-red-500" />
+                    )}
                   </Table.Cell>
                   <Table.Cell>{post.category}</Table.Cell>
                   <Table.Cell>
