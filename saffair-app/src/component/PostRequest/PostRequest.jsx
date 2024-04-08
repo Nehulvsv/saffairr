@@ -15,15 +15,13 @@ export default function PostRequest() {
   useEffect(() => {
     const fetchPosts = async () => {
       try {
-        const res = await fetch(
-          `http://localhost:6600/getposts?userId=${currentUser._id}`
-        );
+        const res = await fetch(`http://localhost:6600/getposts`);
         const data = await res.json();
         if (res.ok) {
           // setUserPosts(data.posts);
           const filteredPosts = data.posts.filter((post) => !post.publish);
-          const fp = filteredPosts.filter((post) => post.isContributor);
-          setUserPosts(fp);
+          // const fp = filteredPosts.filter((post) => post.isContributor);
+          setUserPosts(filteredPosts);
           if (data.posts.length < 9) {
             setShowMore(false);
           }
@@ -102,6 +100,7 @@ export default function PostRequest() {
               <Table.HeadCell>Date updated</Table.HeadCell>
               <Table.HeadCell>Post image</Table.HeadCell>
               <Table.HeadCell>Post title</Table.HeadCell>
+              <Table.HeadCell>contributor</Table.HeadCell>
               <Table.HeadCell>Category</Table.HeadCell>
               <Table.HeadCell>Delete</Table.HeadCell>
               <Table.HeadCell>
@@ -146,7 +145,7 @@ export default function PostRequest() {
                   <Table.Cell>
                     <Link
                       className="text-teal-500 hover:underline"
-                      to={`/edit/${post._id}`}
+                      to={`/editContributor/${post._id}`}
                     >
                       <span>Edit</span>
                     </Link>
