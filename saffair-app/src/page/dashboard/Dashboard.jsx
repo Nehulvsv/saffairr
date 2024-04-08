@@ -26,23 +26,27 @@ export default function Dashboard() {
     }
   }, [location.search]);
   return (
-    <div className="min-h-screen flex flex-col md:flex-row mt-20">
+    <div className="sm:min-h-screen flex flex-col md:flex-row mt-20">
       <div className="md:w-56">
         <DashSidebar />
       </div>
-      {tab === "profile" && <DashProfile />}
-      {tab === "posts" && <DashPosts />}
-      {tab === "users" && <DashUsers />}
-      {tab === "contributors" && <Dashcontributors />}
-      {tab === "dash" && <DashboardComp />}
-      {tab === "be-a-contributor" && <Contributors />}
-      {tab === "mycoins" && <Mycoins />}
-      {tab === "myevent" && <MyEvent />}
-      {tab === "reqCon" && <DashReqContributor />}
-      {tab === "comments" && <DashComments />}
-      {tab === "event" && <DashEvent />}
-      {tab === "contributorDash" && <ConDashboardComp />}
-      {tab === "dashbookmark" && <DashBookMark />}
+      <div className="flex-grow">
+        <div className="w-3/4  sm:mx-auto">
+          {tab === "profile" && <DashProfile />}
+          {tab === "posts" && <DashPosts />}
+          {tab === "users" && <DashUsers />}
+          {tab === "contributors" && <Dashcontributors />}
+          {tab === "dash" && <DashboardComp />}
+          {tab === "be-a-contributor" && <Contributors />}
+          {tab === "mycoins" && <Mycoins />}
+          {tab === "myevent" && <MyEvent />}
+          {tab === "reqCon" && <DashReqContributor />}
+          {tab === "comments" && <DashComments />}
+          {tab === "event" && <DashEvent />}
+          {tab === "contributorDash" && <ConDashboardComp />}
+          {tab === "dashbookmark" && <DashBookMark />}
+        </div>
+      </div>
     </div>
   );
 }

@@ -282,7 +282,7 @@ export default function WeatherUpdate() {
                     )}
                     {!weather.error && weather.data && weather.data.main ? (
                       <div className="bold">
-                        <div className=" thevery text-sm   text-left" id="very">
+                        <div className=" thevery text-xl   text-left" id="very">
                           {aqi === 4 ? "Very " : ""}
                         </div>
                         <p className="headtext  ">{air_quailty}</p>
