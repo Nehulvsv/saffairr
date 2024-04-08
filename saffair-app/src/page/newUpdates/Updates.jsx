@@ -75,14 +75,19 @@ export default function Updates() {
       </Navbar.Collapse>
     </Navbar>
      
-            <Breadcrumb style={{ fontFamily: "myFont" }}>
+    <Breadcrumb style={{ fontFamily: "myFont" }}>
               <Link to={"/"} className="link">
                 {" "}
                 <Breadcrumb.Item icon={HiHome} className="p-2">
                   Home
                 </Breadcrumb.Item>{" "}
               </Link>
-              <Link to={"/blog"} className="link">
+              <p className="text-gray-500">&gt;</p>
+              <Link to={"/readings"} className="link">
+                <Breadcrumb.Item className="p-2">Readings</Breadcrumb.Item>
+              </Link>
+              <p className="text-gray-500">&gt;</p>
+              <Link to={"/Update"} className="link">
                 <Breadcrumb.Item className="p-2">Updates</Breadcrumb.Item>
               </Link>
             </Breadcrumb>
