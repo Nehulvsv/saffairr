@@ -255,8 +255,14 @@ routes.get("/:userId", async (req, res, next) => {
     if (!user) {
       return next(errorHandler(404, "User not found"));
     }
+    // Calculate total coins here
+    const totalCoins = user.coinHistory.reduce(
+      (total, history) => total + history.coinsEarned,
+      0
+    );
+    // Sending totalCoins along with other user data
     const { password, ...rest } = user._doc;
-    res.status(200).json(rest);
+    res.status(200).json({ ...rest, totalCoins });
   } catch (error) {
     next(error);
   }
@@ -357,25 +363,28 @@ routes.post("/unbookmark/:postId", async (req, res) => {
 routes.put("/add-event/:id", async (req, res) => {
   try {
     const { eventName, coinsEarned, date } = req.body;
+    if (coinsEarned <= 100) {
+      // Find the user by username
+      const user = await Users.findOne({ _id: req.params.id });
 
-    // Find the user by username
-    const user = await Users.findOne({ _id: req.params.id });
+      if (!user) {
+        return res.status(404).json({ error: "User not found" });
+      }
 
-    if (!user) {
-      return res.status(404).json({ error: "User not found" });
+      // Push event details to the user's coin history
+      user.coinHistory.push({
+        eventName,
+        coinsEarned,
+        date,
+      });
+
+      // Save the updated user document
+      await user.save();
+
+      res.status(200).json({ message: "Event details added successfully" });
+    } else {
+      res.status(500).json("max coin");
     }
-
-    // Push event details to the user's coin history
-    user.coinHistory.push({
-      eventName,
-      coinsEarned,
-      date,
-    });
-
-    // Save the updated user document
-    await user.save();
-
-    res.status(200).json({ message: "Event details added successfully" });
   } catch (error) {
     console.error("Error adding event details:", error);
     res.status(500).json({ error: "Internal server error" });
