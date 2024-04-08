@@ -100,7 +100,7 @@ export default function DashSidebar() {
             </Sidebar.Item>
           </Link>
 
-          {currentUser.isAdmin && (
+          {currentUser.isAdmin && currentUser.isContributor && (
             <>
               <Sidebar.Collapse icon={HiDocumentText} label="Readings">
                 <Link to="/createblog" onClick={scrollToTop}>
