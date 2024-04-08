@@ -168,9 +168,12 @@ export default function DashSidebar() {
                 </Sidebar.Item>
               </Link>
               <Sidebar.Collapse icon={HiOutlineUserGroup} label=" Contributors">
-                <Link to="/dashboard?tab=contributors" onClick={scrollToTop}>
+                <Link to="/dashboard?tab=postrequest" onClick={scrollToTop}>
                   {" "}
-                  <Sidebar.Item icon={FaClipboardList}>
+                  <Sidebar.Item
+                    icon={FaClipboardList}
+                    // action={tab === "postrequest"}
+                  >
                     Post Request
                   </Sidebar.Item>
                 </Link>
