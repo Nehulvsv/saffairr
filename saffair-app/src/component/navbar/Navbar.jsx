@@ -191,16 +191,30 @@ export default function Navbar({ _id }) {
                   className="flex items-center p-0.5 rounded-full"
                   style={{ border: "0.5px solid #2196ba" }}
                 >
-                  <p className="mx-2 text-l hidden sm:block">
-                    {currentUser.username}
-                  </p>
-                  <Avatar
+                   <Avatar
                     alt="user"
                     img={currentUser.profilePicture}
                     rounded
                     className="userprofile"
                   
                   />
+                  <p className="mx-2 text-l hidden sm:block">
+                    {currentUser.username}
+                  </p>
+                  <div className="border-l border-black h-7 p-1"></div>
+
+                  <Avatar
+                    alt="user"
+                    img="../assets/coin2.png"
+                    rounded
+                    className="userprofile"
+                  
+                  />
+                   <p className="mx-2 text-l hidden sm:block">
+                  100
+                  </p>
+                 
+                  
                 </div>
               </>
             }

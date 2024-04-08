@@ -360,6 +360,7 @@ export default function WeatherUpdate() {
                       Search
                     </Button>
                   </div>
+                  {/* <div className="impdiv mt-1 pl-3" style={{borderRadius:'20px',backgroundColor: 'rgba(211, 211, 211, 0.2)', width:'82%'}}> */}
                   <div className="twoparts">
                     <div className="wea">
                       <div className="tago">
@@ -515,10 +516,11 @@ export default function WeatherUpdate() {
                       </div>
                     </div>
                   </div>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
+          // </div>
         )}
       </div>
       <div className="HA">

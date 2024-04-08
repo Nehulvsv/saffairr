@@ -112,6 +112,7 @@ export default function PostPage() {
                     className="postImg"
                     alt="post img"
                     srcSet=""
+                     style={{objectFit:'cover'}}
                   />
 
                   <div className="blurTitle glass">

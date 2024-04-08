@@ -7,7 +7,8 @@ export default function Blogcard({ cover, title, image }) {
       <img
         src={image}
         alt="Blog Post"
-        className="w-24 h-auto md:w-48 md:h-32 mr-4 md:mr-0 mb-4 md:mb-0"
+        className="w-24  h-auto md:w-48 md:h-32 mr-4 md:mr-0 mb-4 md:mb-0"
+       
       />
       <div>
         <h5 className="text-2xl font-bold tracking-tight text-gray-900">

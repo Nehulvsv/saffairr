@@ -30,6 +30,7 @@ export default function Post({
                 alt="card__image"
                 className="card__image"
                 width="600"
+                style={{objectFit:'cover'}}
               />
             </div>
           </Link>
