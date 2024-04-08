@@ -192,6 +192,28 @@ export default function WeatherUpdate() {
     return imageMap[aqi] || "./assets/aqiImg/good.jpg";
   };
 
+  const getHealthAdviceImage = () => {
+    const imageMap = {
+      1: "./assets/Group 408.svg",
+      2: "./assets/Group 498.svg",
+      3: "./assets/Group 499.svg",
+      4: "./assets/Group 500.svg",
+      5: "./assets/Group 501.svg",
+    };
+    return imageMap[aqi] || "./assets/aqiImg/Group 408.svg";
+  };
+
+  const getHealthAdviceImage2 = () => {
+    const imageMap = {
+      1: "./assets/aqiImg/Group 486.svg",
+      2: "./assets/aqiImg/Group 494.svg",
+      3: "./assets/aqiImg/Group 495.svg",
+      4: "./assets/aqiImg/Group 496.svg",
+      5: "./assets/aqiImg/Group 497.svg",
+    };
+    return imageMap[aqi] || "./assets/aqiImg/Group 408.svg";
+  };
+
   var aqiValue;
   var air_quailty;
   if (aqi === 1) {
@@ -502,11 +524,11 @@ export default function WeatherUpdate() {
       <div className="HA">
         <img
           className="HA2"
-          src="./assets/Group 499.svg"
+          src={getHealthAdviceImage()}
           alt="img"
           height="800px"
         />
-        <img className="HA1" src="./assets/aqiimg/Group 495.svg" alt="img" />
+        <img className="HA1" src={getHealthAdviceImage2()} alt="img" />
       </div>
     </div>
   );

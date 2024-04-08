@@ -38,13 +38,9 @@ export default function Readings() {
     (post) => post.readingType === "Blog" && post.publish === true
   );
 
-  const filteredNews = posts.filter(
-    (post) => post.readingType === "News"
-  );
+  const filteredNews = posts.filter((post) => post.readingType === "News");
 
-  const filteredUpdates = posts.filter(
-    (post) => post.readingType === "Update"
-  );
+  const filteredUpdates = posts.filter((post) => post.readingType === "Update");
 
   return (
     <>
@@ -81,13 +77,15 @@ export default function Readings() {
                   Home
                 </Breadcrumb.Item>{" "}
               </Link>
-              <Link to={"/blog"} className="link">
-                <Breadcrumb.Item className="p-2">Blogs</Breadcrumb.Item>
+              <p className="text-gray-500">&gt;</p>
+              <Link to={"/readings"} className="link">
+                <Breadcrumb.Item className="p-2">Readings</Breadcrumb.Item>
               </Link>
             </Breadcrumb>
             <div className="blogtitle">
-            <Link to={"/blog"} className="link">
-              <h2 className="text-2xl font-bold">Blogs</h2></Link>
+              <Link to={"/blog"} className="link">
+                <h2 className="text-2xl font-bold">Blogs</h2>
+              </Link>
               <hr />
             </div>
 
@@ -99,8 +97,9 @@ export default function Readings() {
               </>
             </div>
             <div className="blogtitle">
-            <Link to={"/news"} className="link">
-              <h2 className="text-2xl font-bold">News</h2></Link>
+              <Link to={"/news"} className="link">
+                <h2 className="text-2xl font-bold">News</h2>
+              </Link>
               <hr />
             </div>
 
@@ -112,8 +111,9 @@ export default function Readings() {
               </>
             </div>
             <div className="blogtitle">
-            <Link to={"/Update"} className="link">
-              <h2 className="text-2xl font-bold">Updates</h2></Link>
+              <Link to={"/Update"} className="link">
+                <h2 className="text-2xl font-bold">Updates</h2>
+              </Link>
               <hr />
             </div>
 

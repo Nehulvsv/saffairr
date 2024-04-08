@@ -85,6 +85,11 @@ export default function Blog() {
                   Home
                 </Breadcrumb.Item>{" "}
               </Link>
+              <p className="text-gray-500">&gt;</p>
+              <Link to={"/readings"} className="link">
+                <Breadcrumb.Item className="p-2">Readings</Breadcrumb.Item>
+              </Link>
+              <p className="text-gray-500">&gt;</p>
               <Link to={"/blog"} className="link">
                 <Breadcrumb.Item className="p-2">Blogs</Breadcrumb.Item>
               </Link>
