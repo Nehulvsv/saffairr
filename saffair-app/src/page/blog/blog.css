@@ -6,6 +6,9 @@
   overflow: hidden;
   margin-top: 75px;
 }
+.headtag:hover {
+  color: #2196ba;
+}
 
 .grid {
   display: grid;
