@@ -145,15 +145,15 @@ export default function PostPage() {
                   <CommentSection postId={postInfo._id} />
                 </div>
                 <div>
-                <div>
+                  {/* <div>
                   <Ratings />
+                </div> */}
+                  <Qna
+                    que={postInfo.quizQuestion}
+                    options={postInfo.quizOptions}
+                    ans={postInfo.correctAnswer}
+                  />
                 </div>
-              <Qna
-                que={postInfo.quizQuestion}
-                options={postInfo.quizOptions}
-                ans={postInfo.correctAnswer}
-              />
-            </div>
               </div>
               <div className="rightSide mt-6">
                 <div style={{ marginTop: "10px" }}>
@@ -170,7 +170,7 @@ export default function PostPage() {
                 ))}
               </div>
             </div>
-            
+
             <div className="bottomPost">
               <div
                 className="readingtitle"

@@ -1,9 +1,9 @@
 import "./footer.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
-  faFacebook,
-  faInstagram,
-  faTwitter,
+  faSquareFacebook,
+  faSquareInstagram,
+  faSquareXTwitter,
 } from "@fortawesome/free-brands-svg-icons";
 import { Link } from "react-router-dom";
 const img = "./assets/logofooter.png";
@@ -64,13 +64,13 @@ export default function Home() {
               <p>Social</p>
               <div className="socialapp">
                 <a href="#" className="icon1">
-                  <FontAwesomeIcon icon={faFacebook} />
+                  <FontAwesomeIcon icon={faSquareFacebook} />
                 </a>
                 <a href="#" className="icon1">
-                  <FontAwesomeIcon icon={faInstagram} />
+                  <FontAwesomeIcon icon={faSquareInstagram} />
                 </a>
                 <a href="#" className="icon1">
-                  <FontAwesomeIcon icon={faTwitter} />
+                  <FontAwesomeIcon icon={faSquareXTwitter} />
                 </a>
               </div>
               <div className="playstore">

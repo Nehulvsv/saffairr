@@ -282,7 +282,7 @@ export default function WeatherUpdate() {
                     )}
                     {!weather.error && weather.data && weather.data.main ? (
                       <div className="bold">
-                        <div className=" thevery text-sm   text-left" id="very">
+                        <div className=" thevery text-xl   text-left" id="very">
                           {aqi === 4 ? "Very " : ""}
                         </div>
                         <p className="headtext  ">{air_quailty}</p>
@@ -498,6 +498,15 @@ export default function WeatherUpdate() {
             </div>
           </div>
         )}
+      </div>
+      <div className="HA">
+        <img
+          className="HA2"
+          src="./assets/Group 499.svg"
+          alt="img"
+          height="800px"
+        />
+        <img className="HA1" src="./assets/aqiimg/Group 495.svg" alt="img" />
       </div>
     </div>
   );

@@ -33,15 +33,7 @@ export default function Homepage() {
       <div>
         <WeatherUpdate />
         {/* <Healthadvice /> */}
-        <div className="HA">
-          <img
-            className="HA2"
-            src="./assets/Group 499.svg"
-            alt="img"
-            height="800px"
-          />
-          <img className="HA1" src="./assets/aqiimg/Group 495.svg" alt="img" />
-        </div>
+
         <div>
           <Vision />
         </div>
