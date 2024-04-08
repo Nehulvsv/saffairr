@@ -21,7 +21,7 @@ export default function EditContributorPost() {
   const [formData, setFormData] = useState({});
   const [publishError, setPublishError] = useState(null);
   const { postId } = useParams();
-
+  const [coinHistory, setCoinHestory] = useState({});
   const navigate = useNavigate();
   const { currentUser } = useSelector((state) => state.user);
 
@@ -115,7 +115,36 @@ export default function EditContributorPost() {
       setPublishError("Something went wrong");
     }
   };
-  console.log(formData);
+
+  const handleCoin = async () => {
+    try {
+      const updatedCoinHestory = {
+        ...coinHistory,
+        eventName: "post approved coin",
+      };
+      const res = await fetch(
+        `http://localhost:6600/api/user/add-event/${formData.userId}`,
+        {
+          method: "put",
+          credentials: "include",
+          headers: {
+            "content-Type": "application/json",
+          },
+          body: JSON.stringify(updatedCoinHestory),
+        }
+      );
+      if (!res.ok) {
+        alert("something went wrong");
+      }
+      if (res.ok) {
+        alert("successfully added coins");
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  console.log(formData.userId);
   return (
     <div className="p-3 max-w-3xl mx-auto min-h-screen">
       <h1 className="text-center text-3xl my-7 font-semibold">Update post</h1>
@@ -188,7 +217,15 @@ export default function EditContributorPost() {
             setFormData({ ...formData, content: value });
           }}
         />
-        <TextInput></TextInput>
+        <TextInput
+          type="number"
+          defaultValue="50"
+          placeholder="give coin"
+          onChange={(event) => {
+            setCoinHestory({ ...coinHistory, coinsEarned: event.target.value });
+          }}
+        ></TextInput>
+        <Button onClick={handleCoin}>submit</Button>
         <Button type="submit" gradientDuoTone="purpleToPink">
           Update post and publish
         </Button>

@@ -13,7 +13,7 @@ export default function Mycoins() {
             <img src="../assets/coin.png" alt="Coin" />
           </div>
           <div className="font-bold text-5xl">
-            <span> {currentUser.coins}</span> coins
+            <span> {currentUser.totalCoins}</span> coins
           </div>
         </div>
         {/* <div className="sm:flex flex-cols gap-3 justify-center items-center w-full bg-red-200 flex md:bg-blue-300 sm:bg-yellow-500  sm:flex"> */}
