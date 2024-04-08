@@ -220,11 +220,12 @@ export default function EditContributorPost() {
         <TextInput
           type="number"
           defaultValue="50"
+          max={100}
           placeholder="Give Coins"
           onChange={(event) => {
             setCoinHestory({ ...coinHistory, coinsEarned: event.target.value });
           }}
-        ></TextInput>
+        />
         <Button onClick={handleCoin} outline gradientDuoTone="cyanToBlue">submit</Button>
         <Button type="submit"outline gradientDuoTone="cyanToBlue">
           Update post and publish
