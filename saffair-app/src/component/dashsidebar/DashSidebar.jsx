@@ -100,22 +100,26 @@ export default function DashSidebar() {
             </Sidebar.Item>
           </Link>
 
-          {currentUser.isAdmin && currentUser.isContributor && (
-            <>
-              <Sidebar.Collapse icon={HiDocumentText} label="Readings">
-                <Link to="/createblog" onClick={scrollToTop}>
-                  {" "}
-                  <Sidebar.Item icon={FaClipboardList}>
-                    Create Readings
-                  </Sidebar.Item>
-                </Link>
-                <Link to="/dashboard?tab=posts" onClick={scrollToTop}>
-                  <Sidebar.Item action={tab === "posts"} icon={HiDocumentText}>
-                    List of Readings
-                  </Sidebar.Item>
-                </Link>
-              </Sidebar.Collapse>
-              {/* <Link to="/dashboard?tab=posts" onClick={scrollToTop}>
+          {currentUser.isAdmin ||
+            (currentUser.isContributor && (
+              <>
+                <Sidebar.Collapse icon={HiDocumentText} label="Readings">
+                  <Link to="/createblog" onClick={scrollToTop}>
+                    {" "}
+                    <Sidebar.Item icon={FaClipboardList}>
+                      Create Readings
+                    </Sidebar.Item>
+                  </Link>
+                  <Link to="/dashboard?tab=posts" onClick={scrollToTop}>
+                    <Sidebar.Item
+                      action={tab === "posts"}
+                      icon={HiDocumentText}
+                    >
+                      List of Readings
+                    </Sidebar.Item>
+                  </Link>
+                </Sidebar.Collapse>
+                {/* <Link to="/dashboard?tab=posts" onClick={scrollToTop}>
                 <Sidebar.Item
                   active={tab === "posts"}
                   icon={HiDocumentText}
@@ -124,8 +128,8 @@ export default function DashSidebar() {
                   Blogs
                 </Sidebar.Item>
               </Link> */}
-            </>
-          )}
+              </>
+            ))}
           {!currentUser.isAdmin && (
             <Link to="/dashboard?tab=mycoins" onClick={scrollToTop}>
               <Sidebar.Item icon={BiSolidCoin}>My Coins</Sidebar.Item>
