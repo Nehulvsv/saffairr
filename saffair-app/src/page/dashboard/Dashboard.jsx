@@ -15,6 +15,7 @@ import DashComments from "../../component/dashComments/DashComments";
 import DashEvent from "../../component/DashEvent/DashEvent";
 import ConDashboardComp from "../../component/condashboardcom/ConDashboardComp";
 import DashBookMark from "../../component/DashBookMark/DashBookMark";
+import PostRequest from "../../component/PostRequest/PostRequest";
 export default function Dashboard() {
   const location = useLocation();
   const [tab, setTab] = useState("");
@@ -45,6 +46,7 @@ export default function Dashboard() {
           {tab === "event" && <DashEvent />}
           {tab === "contributorDash" && <ConDashboardComp />}
           {tab === "dashbookmark" && <DashBookMark />}
+          {tab === "postrequest" && <PostRequest />}
         </div>
       </div>
     </div>
