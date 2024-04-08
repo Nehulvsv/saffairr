@@ -24,7 +24,7 @@ const Qna = ({ que, options, ans }) => {
   return (
     <div className="main">
       <div
-        className="mt-20 items-center"
+        className="mt-2  items-center"
         style={{ backgroundColor: "#2196BA", height: "60px" }}
       >
         <div
