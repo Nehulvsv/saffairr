@@ -36,7 +36,7 @@ const Qna = ({ que, options, ans }) => {
         </div>
       </div>
       <div
-        className="theqna mt-5 w-full flex flex-col  mb-10"
+        className="theqna mt-5 w-full flex flex-col  "
         style={{ fontFamily: "Raleway" }}
       >
         <div className="question">

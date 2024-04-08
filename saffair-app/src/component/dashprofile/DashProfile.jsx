@@ -28,9 +28,9 @@ import {
 } from "../../redux/user/userSlice";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
-  faFacebook,
-  faInstagram,
-  faTwitter,
+  faSquareFacebook,
+  faSquareInstagram,
+  faSquareXTwitter,
   faLinkedin,
 } from "@fortawesome/free-brands-svg-icons";
 import { useDispatch } from "react-redux";
@@ -280,7 +280,7 @@ export default function DashProfile() {
               <label>Social Media Links</label>
 
               <div className="facebookpart flex gap-2 mb-2 mt-2">
-                <FontAwesomeIcon icon={faFacebook} className="text-2xl mt-2" />
+                <FontAwesomeIcon icon={faSquareFacebook} className="text-2xl mt-2" />
                 <TextInput
                   type="text"
                   placeholder="Facebook"
@@ -293,7 +293,7 @@ export default function DashProfile() {
               </div>
 
               <div className="twitterpart flex gap-2 mb-2">
-                <FontAwesomeIcon icon={faTwitter} className="text-2xl mt-2" />
+                <FontAwesomeIcon icon={faSquareXTwitter} className="text-2xl mt-2" />
                 <TextInput
                   type="text"
                   placeholder="Twitter"
@@ -306,7 +306,7 @@ export default function DashProfile() {
               </div>
 
               <div className="instapart flex gap-2 mb-2 ">
-                <FontAwesomeIcon icon={faInstagram} className="text-2xl mt-2" />
+                <FontAwesomeIcon icon={faSquareInstagram} className="text-2xl mt-2" />
                 <TextInput
                   type="text"
                   placeholder="Instagram"
