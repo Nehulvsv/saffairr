@@ -100,7 +100,7 @@ export default function PostRequest() {
               <Table.HeadCell>Date updated</Table.HeadCell>
               <Table.HeadCell>Post image</Table.HeadCell>
               <Table.HeadCell>Post title</Table.HeadCell>
-              <Table.HeadCell>contributor</Table.HeadCell>
+              {/* <Table.HeadCell>contributor</Table.HeadCell> */}
               <Table.HeadCell>Category</Table.HeadCell>
               <Table.HeadCell>Delete</Table.HeadCell>
               <Table.HeadCell>
@@ -154,14 +154,14 @@ export default function PostRequest() {
               </Table.Body>
             ))}
           </Table>
-          {showMore && (
+          {/* {showMore && (
             <button
               onClick={handleShowMore}
               className="w-full text-teal-500 self-center text-sm py-7"
             >
               Show more
             </button>
-          )}
+          )} */}
         </>
       ) : (
         <p>No posts match your search criteria.</p>

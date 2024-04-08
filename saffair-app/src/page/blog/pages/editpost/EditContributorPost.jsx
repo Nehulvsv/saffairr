@@ -89,7 +89,7 @@ export default function EditContributorPost() {
     e.preventDefault();
     try {
       const updatedFormData = { ...formData, publish: true };
-      const res = await fetch(
+      const updatePostRes = await fetch(
         `http://localhost:6600/updatecontributorpost/${postId}`,
         {
           method: "PUT",
@@ -100,29 +100,23 @@ export default function EditContributorPost() {
           body: JSON.stringify(updatedFormData),
         }
       );
-      const data = await res.json();
-      if (!res.ok) {
+      const data = await updatePostRes.json();
+      if (!updatePostRes.ok) {
         setPublishError(data.message);
         return;
       }
 
-      if (res.ok) {
+      if (updatePostRes.ok) {
         setPublishError(null);
         // navigate({`/post/${postId}`});
         navigate("/blog");
       }
-    } catch (error) {
-      setPublishError("Something went wrong");
-    }
-  };
 
-  const handleCoin = async () => {
-    try {
       const updatedCoinHestory = {
         ...coinHistory,
         eventName: "post approved coin",
       };
-      const res = await fetch(
+      const coinRes = await fetch(
         `http://localhost:6600/api/user/add-event/${formData.userId}`,
         {
           method: "put",
@@ -133,14 +127,14 @@ export default function EditContributorPost() {
           body: JSON.stringify(updatedCoinHestory),
         }
       );
-      if (!res.ok) {
+      if (!coinRes.ok) {
         alert("something went wrong");
       }
-      if (res.ok) {
+      if (coinRes.ok) {
         alert("successfully added coins");
       }
     } catch (error) {
-      console.log(error);
+      setPublishError("Something went wrong");
     }
   };
 
@@ -219,15 +213,15 @@ export default function EditContributorPost() {
         />
         <TextInput
           type="number"
-          defaultValue="50"
           max={100}
           placeholder="Give Coins"
+          required
           onChange={(event) => {
             setCoinHestory({ ...coinHistory, coinsEarned: event.target.value });
           }}
         />
-        <Button onClick={handleCoin} outline gradientDuoTone="cyanToBlue">submit</Button>
-        <Button type="submit"outline gradientDuoTone="cyanToBlue">
+
+        <Button type="submit" outline gradientDuoTone="cyanToBlue">
           Update post and publish
         </Button>
         {publishError && (

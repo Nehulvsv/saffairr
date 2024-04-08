@@ -100,36 +100,40 @@ export default function DashSidebar() {
             </Sidebar.Item>
           </Link>
 
-          {currentUser.isAdmin ||
-            (currentUser.isContributor && (
-              <>
-                <Sidebar.Collapse icon={HiDocumentText} label="Readings">
-                  <Link to="/createblog" onClick={scrollToTop}>
-                    {" "}
-                    <Sidebar.Item icon={FaClipboardList}>
-                      Create Readings
-                    </Sidebar.Item>
-                  </Link>
-                  <Link to="/dashboard?tab=posts" onClick={scrollToTop}>
-                    <Sidebar.Item
-                      action={tab === "posts"}
-                      icon={HiDocumentText}
-                    >
-                      List of Readings
-                    </Sidebar.Item>
-                  </Link>
-                </Sidebar.Collapse>
-                {/* <Link to="/dashboard?tab=posts" onClick={scrollToTop}>
-                <Sidebar.Item
-                  active={tab === "posts"}
-                  icon={HiDocumentText}
-                  as="div"
-                >
-                  Blogs
-                </Sidebar.Item>
-              </Link> */}
-              </>
-            ))}
+          {currentUser.isAdmin && (
+            <>
+              <Sidebar.Collapse icon={HiDocumentText} label="Readings">
+                <Link to="/createblog" onClick={scrollToTop}>
+                  {" "}
+                  <Sidebar.Item icon={FaClipboardList}>
+                    Create Readings
+                  </Sidebar.Item>
+                </Link>
+                <Link to="/dashboard?tab=posts" onClick={scrollToTop}>
+                  <Sidebar.Item action={tab === "posts"} icon={HiDocumentText}>
+                    List of Readings
+                  </Sidebar.Item>
+                </Link>
+              </Sidebar.Collapse>
+            </>
+          )}
+          {currentUser.isContributor && (
+            <>
+              <Sidebar.Collapse icon={HiDocumentText} label="Readings">
+                <Link to="/createblog" onClick={scrollToTop}>
+                  {" "}
+                  <Sidebar.Item icon={FaClipboardList}>
+                    Create Readings
+                  </Sidebar.Item>
+                </Link>
+                <Link to="/dashboard?tab=posts" onClick={scrollToTop}>
+                  <Sidebar.Item action={tab === "posts"} icon={HiDocumentText}>
+                    List of Readings
+                  </Sidebar.Item>
+                </Link>
+              </Sidebar.Collapse>
+            </>
+          )}
           {!currentUser.isAdmin && (
             <Link to="/dashboard?tab=mycoins" onClick={scrollToTop}>
               <Sidebar.Item icon={BiSolidCoin}>My Coins</Sidebar.Item>
@@ -176,7 +180,7 @@ export default function DashSidebar() {
                   {" "}
                   <Sidebar.Item
                     icon={FaClipboardList}
-                    // action={tab === "postrequest"}
+                    action={tab === "postrequest"}
                   >
                     Post Request
                   </Sidebar.Item>
