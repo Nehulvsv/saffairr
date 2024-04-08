@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Ratings from "../Ratings/Ratings";
 
 const Qna = ({ que, options, ans }) => {
   const [selectedOption, setSelectedOption] = useState("");
@@ -35,7 +36,7 @@ const Qna = ({ que, options, ans }) => {
         </div>
       </div>
       <div
-        className="theqna mt-5 w-full flex flex-col items-center justify-center mb-10"
+        className="theqna mt-5 w-full flex flex-col  mb-10"
         style={{ fontFamily: "Raleway" }}
       >
         <div className="question">
@@ -67,23 +68,29 @@ const Qna = ({ que, options, ans }) => {
             ))}
           </div>
         </div>
-        {showSubmit && (
-          <div className="submitbutton flex justify-center">
-            <button className="submit" onClick={handleSubmit}>
-              Submit
-            </button>
-          </div>
-        )}
-        {showPopup && (
-          <div className="popup">
-            {selectedOption === ans ? (
-              <p className="bg-green-200 p-1 rounded-lg">Nice job! You selected the correct answer.</p>
-            ) : (
-              <p className="bg-red-200 p-2 rounded-lg">Oops! The correct answer is: <span className="font-bold">{correctAnswer}</span></p>
-            )}
-          </div>
-        )}
       </div>
+      <Ratings />
+      {showSubmit && (
+        <div className="submitbutton flex justify-center">
+          <button className="submit" onClick={handleSubmit}>
+            Submit
+          </button>
+        </div>
+      )}
+      {showPopup && (
+        <div className="popup mt-5">
+          {selectedOption === ans ? (
+            <p className="bg-green-200 p-1 rounded-lg">
+              Nice job! You selected the correct answer.
+            </p>
+          ) : (
+            <p className="bg-red-200 p-2 rounded-lg">
+              Oops! The correct answer is:{" "}
+              <span className="font-bold">{correctAnswer}</span>
+            </p>
+          )}
+        </div>
+      )}
     </div>
   );
 };
