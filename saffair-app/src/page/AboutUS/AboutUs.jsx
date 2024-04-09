@@ -44,7 +44,7 @@ const AboutUsPage = () => {
       </h2>
       <br />
       <br />
-      <p className="sm:text-lg ">
+      <p className="sm:text-lg flex-column justify-center ">
         <span id="W_Name2">Saffair</span> is a Professional{" "}
         <span id="W_Type1">Environmental Awareness Community</span> Platform.
         Here we will only provide you with interesting content that you will
