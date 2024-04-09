@@ -56,7 +56,7 @@
 .shalf {
   /* background-color: red; */
   height: 100%;
-  width: 70%;
+  width: 75%;
   /* border: 10px solid  gray; */
 }
 
@@ -66,18 +66,19 @@
 }
 
 .thetag {
-  margin-bottom: -19px;
+  margin-bottom: -29px;
 }
 
 .wea {
   /* background-color: yellow; */
-  margin-top: 30px;
+  /* margin-top: 30px; */
   height: 40%;
   width: 100%;
 }
 
 .theaqi {
   /* background-color: black; */
+  margin-top: 4px;
   height: 70%;
   width: 100%;
 }
@@ -87,7 +88,7 @@
   height: 90%;
   /* background-color: red; */
   width: 100%;
-  /* margin-top: 10%; */
+  margin-top: 5px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -191,13 +192,6 @@
   color: white;
 }
 
-.charts {
-  height: 40px;
-  /* background-color: tomato  ; */
-  display: flex;
-  margin-left: 30px;
-  margin-top: 5px;
-}
 
 .charttag {
   /* background-color: yellowgreen; */
@@ -211,13 +205,12 @@
 
 .hori-line {
   background-image: linear-gradient(white, white);
-
   background-image: linear-gradient(
     rgba(255, 255, 255, 0.2),
     rgba(255, 255, 255, 0.2)
   );
   height: 3px;
-  width: 67%;
+  width: 97%;
   margin-top: 20px;
   margin-bottom: 20px;
 }
@@ -226,7 +219,7 @@
   /* background-color: yellowgreen; */
   display: inline;
   font-family: "Raleway", sans-serif;
-  font-size: 120%;
+  font-size: 130%;
   font-weight: 600;
 
   text-align: left;
@@ -242,12 +235,6 @@
   margin-left: 20px;
   height: 80%;
   width: 90%;
-}
-
-.sgrp {
-  height: 80%;
-  width: 90%;
-  /* margin-left: 72px; */
 }
 
 .n1data,
@@ -290,7 +277,11 @@
   margin-bottom: 0;
 }
 
-
+.impdiv{
+  border-radius: 20px;
+  background-color: rgba(33, 150, 186, 0.2);
+  width: 76%;
+}
 .bar {
   height: 45px;
   border-radius: 10px;
@@ -317,9 +308,13 @@
   .thevery{
     margin-bottom: -10px;
   }
-  .twoparts {
-    margin-left: 10px;
-    margin-bottom: 10px;
+  .impdiv{
+    width:70%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .twoparts{
+    width: 100%;
   }
   .scontainer {
     display: none;
@@ -350,17 +345,6 @@
     margin-right: auto;
   }
 
-  .n1,
-  .n2,
-  .n3,
-  .n4 {
-    display: flex;
-
-    padding: 10px;
-    margin-left: 10vw;
-    height: 80%;
-    width: 100%;
-  }
   .chartvalue {
     font-size: 25px;
   }
@@ -368,22 +352,10 @@
     margin-top: -10px;
   }
 
-  .hori-line {
-    width: 87vw;
-    margin-left: 50px;
-    margin-bottom: 10px;
-    margin-top: 0;
-  }
-
-  .wea {
-    margin-top: 0.5vh;
-    height: 30%;
-    width: 80%;
-  }
-
-  .charts {
-    margin-left: 70px;
-  }
+.n1,.n2,.n3,.n4{
+  width: 50%;
+}
+ 
 
   .charttag {
     /* background-color: yellowgreen; */
@@ -396,20 +368,19 @@
     margin-left: 50px;
   }
 
-  .sgrp {
-    height: 80%;
-    width: 80%;
-    margin-left: 20vw;
-  }
+ .thetag{
+  margin-left: 50px;
+ }
 
   .slogo {
     display: none;
   }
 
   .sgrid {
-    /* padding: 15px; */
+    padding: 15px;
+    margin-left: 70px;
     padding-top: 0px;
-    margin-top: 0px;
+    margin-top: 10px;
   }
 
   .headtext {
@@ -417,8 +388,8 @@
 
     font-size: 400%;
     text-align: center;
-    height: 15vh;
-    width: 48vw;
+    /* height: 15vh; */
+    /* width: 48vw; */
   }
 
   .infodata {
@@ -427,8 +398,7 @@
 
   .theaqi {
     margin-top: 10px;
-    height: 60%;
-    width: 100%;
+    /* margin-left:0px; */
   }
 
   .infopluslogo {
@@ -442,8 +412,8 @@
   }
 
   .wthr {
-    margin-top: 20px;
-    margin-left: 30px;
+    /* margin-top: 20px; */
+    margin-left: 80px;
   }
 }
 
@@ -456,23 +426,22 @@
   .whole {
     width: 100%;
   }
-
-  .shalf {
-    width: 100%;
-  }
+.wea{
+  margin-top: 0;
+}
+ .charttag,.thetag{
+  margin-left: 13px;
+  margin-top: 0;
+  
+ }
 
   .infopluslogo {
     margin-top: -20px;
   }
 
-  .n1data,
-  .n2data,
-  .n3data,
-  .n4data,
-  .chartvalue {
-    font-size: 20px;
-  }
-
+ .wthr,.sgrid{
+  margin-left: 0;
+ }
   .n1name,
   .n2name,
   .n3name,
@@ -480,9 +449,7 @@
     margin-bottom: 0px;
   }
 
-  .unique2 {
-    margin-top: -15px;
-  }
+ 
   /* 
   .bold {
     margin-bottom: -30px;
@@ -507,16 +474,14 @@
     margin-left: 0;
     font-size: 35px;
     font-weight: 0;
-    margin-top: -15px;
+    /* margin-top: -15px; */
   }
 
   .fhalf {
     width: 100%;
   }
 
-  .theaqi {
-    margin-top: -20px;
-  }
+ 
 
   .whole {
     display: flex;
@@ -535,9 +500,7 @@
     margin-left: 20px;
   }
 
-  .grido {
-    margin-left: -55px;
-  }
+  
 
   .wthr {
     /* margin-left: -40px; */
@@ -592,12 +555,6 @@
     margin-top: 5px;
   }
 
-  .n1data,
-  .n2data,
-  .n3data,
-  .n4data {
-    font-size: 17px;
-  }
 
   .shalf {
     padding-left: 15px;
@@ -633,16 +590,9 @@
     margin-top: 30px;
   }
 
-  .thetag {
-    margin-left: -15px;
-  }
+ 
 
-  .lg {
-    height: 25px;
-    width: 25px;
-    margin-top: 3px;
-  }
-
+ 
   .runique {
     padding-left: 24px;
   }
@@ -671,47 +621,51 @@
 
 @media (min-width: 427px) and (max-width: 520px) {
   .shalf {
-    margin-top: 60px;
+    /* margin-top: 60px; */
   }
 
   .wthr {
     margin-left: -10px;
   }
-
+.lg{
+  margin-top: 5px;
+}
   /* .sgrp {
     margin-left: 50px;
   } */
 
   .sgrid {
     grid-column-gap: 20px;
-    margin-left: -40px;
+    /* margin-left: -40px; */
 
   }
 
-  .theaqi {
-    width: 100%;
-  }
-
-  .n1name,
-  .n2name,
-  .n3name,
-  .n4name {
-    font-size: 18px;
-    margin-top: 10px;
-  }
-
-  .n1value,
-  .n2value,
-  .n3value,
-  .n4value {
+  .n1data,
+  .n2data,
+  .n4data {
+    font-family: "Raleway", sans-serif;
     font-size: 16px;
-    margin-top: 10px;
+    font-weight: 600;
+    line-height: 35px;
+    letter-spacing: 0em;
+    text-align: left;
+    padding-left: 10px;
   }
+  
+  .n3data {
+    font-family: "Raleway", sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 35px;
+    letter-spacing: 0em;
+    text-align: left;
+    padding-left: 30px;
+  }
+  
 
-  .hori-line {
-    margin-top: 10px;
-    width: 80vw;
-  }
+  
+  
+  
 
   .headtext {
     margin-top: 17px;
@@ -743,14 +697,8 @@
     margin-top: 13px;
   }
 
-  .theaqi {
-    margin-top: -20px;
-  }
 
-  .lg {
-    height: 25px;
-    margin-top: 15px;
-  }
+ 
 }
 
 @media (max-width: 376px) {
@@ -813,87 +761,6 @@
   }
 }
 
-/* git push */
-@media (min-width: 430px) and (max-width: 431px) {
-  .i-container {
-    border-bottom-left-radius: 50px;
-    /* Adds a 20px border radius to the bottom left corner */
-    border-bottom-right-radius: 50px;
-  }
-
-  /* .shalf {
-    margin-top: -25px;
-  } */
-  .infopluslogo {
-    margin-top: -5px;
-  }
-
-  .wthr {
-    margin-left: -10px;
-  }
-
-  .sgrp {
-    margin-left: 50px;
-  }
-
-  .sgrid {
-    grid-column-gap: 20px;
-  }
-
-  .theaqi {
-    width: 100%;
-  }
-
-  .n1name,
-  .n2name,
-  .n3name,
-  .n4name {
-    font-size: 20px;
-    margin-top: 10px;
-  }
-
-  .n1value,
-  .n2value,
-  .n3value,
-  .n4value {
-    font-size: 18px;
-    margin-top: 10px;
-  }
-
-  .headtext {
-    margin-top: 20px;
-    font-size: 30px;
-    margin-bottom: 20px;
-    font-weight: bold;
-    /* color: black; */
-  }
-
-  .thecity {
-    font-size: 20px;
-  }
-
-  .timedate {
-    font-size: 16px;
-  }
-
-  .infodata {
-    margin-top: 10px;
-  }
-
-  .thetag,
-  .charttag {
-    font-size: 20px;
-  }
-
-  .theaqi {
-    margin-top: -20px;
-  }
-
-  .lg {
-    height: 25px;
-    margin-top: 15px;
-  }
-}
 
 @media (max-width: 320px) {
   .i-container {
