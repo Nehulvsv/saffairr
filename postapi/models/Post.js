@@ -16,7 +16,17 @@ const PostSchema = new Schema(
       required: true,
       unique: true,
     },
-    image: {
+    image1: {
+      type: String,
+      default:
+        "https://www.hostinger.com/tutorials/wp-content/uploads/sites/2/2021/09/how-to-write-a-blog-post.png",
+    },
+    image2: {
+      type: String,
+      default:
+        "https://www.hostinger.com/tutorials/wp-content/uploads/sites/2/2021/09/how-to-write-a-blog-post.png",
+    },
+    image3: {
       type: String,
       default:
         "https://www.hostinger.com/tutorials/wp-content/uploads/sites/2/2021/09/how-to-write-a-blog-post.png",

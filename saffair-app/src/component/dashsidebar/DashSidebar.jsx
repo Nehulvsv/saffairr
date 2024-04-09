@@ -69,31 +69,13 @@ export default function DashSidebar() {
               </Sidebar.Item>
             </Link>
           )}
-
-          {/* {currentUser && currentUser.isContributor && (
-            <Link to="/dashboard?tab=contributorDash">
-              <Sidebar.Item
-                active={tab === "contributorDash" || !tab}
-                icon={HiChartPie}
-                as="div"
-              >
-                Dashboard
-              </Sidebar.Item>
-            </Link>
-          )} */}
           <Link to="/dashboard?tab=profile" onClick={scrollToTop}>
             <Sidebar.Item
               active={tab === "profile"}
               icon={HiUser}
               // label="user"
               labelColor="dark"
-              label={
-                currentUser.isAdmin
-                  ? "Admin"
-                  : currentUser.isContributor
-                  ? "Contributor"
-                  : "User"
-              }
+              label={currentUser.isAdmin ? "Admin" : ""}
               as="div"
             >
               Profile

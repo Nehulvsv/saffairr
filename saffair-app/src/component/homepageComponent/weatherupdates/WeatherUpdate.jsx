@@ -305,7 +305,7 @@ export default function WeatherUpdate() {
                     {!weather.error && weather.data && weather.data.main ? (
                       <div className="bold">
                         <div
-                          className=" thevery text-5xl   text-left"
+                          className=" thevery text-4xl   text-left"
                           id="very"
                         >
                           {aqi === 4 ? "Very " : ""}
@@ -367,9 +367,10 @@ export default function WeatherUpdate() {
                     className="impdiv mt-1 pl-3"
                     style={{
                       borderRadius: "20px",
-                      backgroundColor: "rgba(211, 211, 211, 0.2)",
-                      width: "82%",
+                      backgroundColor: "rgba(33, 150, 186, 0.2)",
+                      width: "75%",
                     }}
+                    
                   >
                     <div className="twoparts">
                       <div className="theaqi">
@@ -383,12 +384,12 @@ export default function WeatherUpdate() {
                         </div> */}
                         <div className="grido sgrid">
                           <div className="n1 sgrp">
-                            <div className="n1data txt unique">
+                            <div className="n3data txt ">
                               <p className="n1name grp ">
                                 PM
                                 <p className="grpvalue">2.5</p>
                               </p>
-                              <p className="n1value unique2">{pm2_5}</p>
+                              <p className="n1value ">{pm2_5}</p>
                             </div>
                           </div>
                           <div className="n1 sgrp">
@@ -397,21 +398,21 @@ export default function WeatherUpdate() {
                                 PM
                                 <p className="grpvalue">10</p>
                               </p>
-                              <p className="n1value unique2">{pm10}</p>
+                              <p className="n1value ">{pm10}</p>
                             </div>
                           </div>
                           <div className="n3 sgrp">
-                            <div className="n3data txt oddone">
-                              <p className="n3name">CO</p>
+                            <div className="n3data txt">
+                              <p className="n1name">CO</p>
                               <p className="n3value">{co}</p>
                             </div>
                           </div>
                           <div className="n4 sgrp">
-                            <div className="n4data txt">
-                              <p className="n4name">
+                            <div className="n1data txt">
+                              <p className="n1name">
                                 SO<sub>2</sub>
                               </p>
-                              <p className="n4value unique2">{so2}</p>
+                              <p className="n4value ">{so2}</p>
                             </div>
                           </div>
                         </div>
