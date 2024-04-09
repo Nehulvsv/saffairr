@@ -34,34 +34,39 @@ const AboutUsPage = () => {
         </div> 
       </div> */}
       <br />
-      <h2 className="text-center font-bold sm:text-xl mb-4">ABOUT US</h2>
+      <h2 className="text-center font-bold sm:text-3xl mb-4">ABOUT US</h2>
       <br />
       <h2
-        className="sm:text-xl"
-        style={{ fontFamily: "Sans-serif", textAlign: "center" }}
+        className="sm:text-3xl"
+        style={{
+          fontFamily: "Sans-serif",
+          textAlign: "center",
+          color: "#2196ba",
+          fontWeight: "bold",
+        }}
       >
         Welcome To <span id="W_Name1">Saffair</span>
       </h2>
       <br />
       <br />
-      <p className="sm:text-lg ">
-        <span id="W_Name2">Saffair</span> is a Professional{" "}
-        <span id="W_Type1">Environmental Awareness Community</span> Platform.
-        Here we will only provide you with interesting content that you will
-        enjoy very much. We are committed to providing you the best of{" "}
-        <span id="W_Type2">Environmental Awareness Community</span>, with a
-        focus on reliability and{" "}
-        <span id="W_Spec">Community and Data Given</span>. we strive to turn our
-        passion for <span id="W_Type3">Environmental Awareness Community</span>{" "}
-        into a thriving website. We hope you enjoy our{" "}
-        <span id="W_Type4">Environmental Awareness Community</span> as much as
-        we enjoy giving them to you.
-      </p>
+      <div className="sm:text-lg  justify-center flex ">
+        <div className="w-3/4">
+          Saffair is a Professional Environmental Awareness Community Platform.
+          Here we will only provide you with interesting content that you will
+          enjoy very much. We are committed to providing you the best of
+          Environmental Awareness Community, with a focus on reliability and
+          Community and Data Given. We strive to turn our passion for
+          Environmental Awareness Community into a thriving website. We hope you
+          enjoy our Environmental Awareness Community as much as we enjoy giving
+          them to you.
+          <br />
+          <br />I will keep on posting such valuable and knowledgeable
+          information on my Website for all of you. Your love and support
+          matters a lot.
+        </div>
+      </div>
       <br />
-      <p className="sm:text-lg">
-        I will keep on posting such valuable and knowledgeable information on my
-        Website for all of you. Your love and support matters a lot.
-      </p>
+
       <br />
       <br />
       <p
@@ -78,15 +83,15 @@ const AboutUsPage = () => {
             color: "#2196ba",
             fontWeight: "bold",
             textAlign: "center",
-            borderBottom: "solid 2px black",
           }}
         >
           Have A Great Day !
         </span>
       </p>
       <br />
+      <div style={{ borderBottom: "solid 2px black", width: "100%" }}></div>
       <br />
-      <br />
+
       <div>
         <Vision />
       </div>

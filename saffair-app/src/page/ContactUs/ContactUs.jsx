@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import { Button, Spinner, TextInput, Textarea } from "flowbite-react";
 import { useDispatch, useSelector } from "react-redux";
-import { updateStart, updateSuccess, updateFailure } from "../../redux/user/userSlice";
-import emailjs from '@emailjs/browser';
-
-
+import {
+  updateStart,
+  updateSuccess,
+  updateFailure,
+} from "../../redux/user/userSlice";
+import emailjs from "@emailjs/browser";
 
 const ContactUs = () => {
   const [msg, setmsg] = useState("");
@@ -16,74 +18,55 @@ const ContactUs = () => {
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.id]: e.target.value });
   };
-  const [uname,setName] = useState('');
-  const [uemail,setEmail] = useState('');
-  const [umessage,setMessage] = useState('');
+  const [uname, setName] = useState("");
+  const [uemail, setEmail] = useState("");
+  const [umessage, setMessage] = useState("");
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const serviceID = 'service_y83p4py';
-    const templateID = 'template_fuis09h';
-    const publicKey = 'GuGLkhlrvX2f8Kzoq';
+    const serviceID = "service_y83p4py";
+    const templateID = "template_fuis09h";
+    const publicKey = "GuGLkhlrvX2f8Kzoq";
 
     const templateParams = {
       from_name: uname,
       email: uemail,
-      to_name:'Team Saffair',
+      to_name: "Team Saffair",
       message: umessage,
     };
-    emailjs.send(serviceID,templateID,templateParams,publicKey)
-    .then((response) => {
-      console.log('Email sent successfully', response);
-      setName('');
-      setEmail('');
-      setMessage('');
-    })
-    .catch((error) => {
-      console.error('error sending email:',error);
-    });
+    emailjs
+      .send(serviceID, templateID, templateParams, publicKey)
+      .then((response) => {
+        console.log("Email sent successfully", response);
+        setName("");
+        setEmail("");
+        setMessage("");
+      })
+      .catch((error) => {
+        console.error("error sending email:", error);
+      });
   };
-
-
 
   return (
     <div
-      className="flex flex-col mt-20 sm:mx-20 bg-gray-100 border-2 border-gray-400 mb-10"
+      className=" flex flex-col mt-20 "
       style={{
         borderRadius: "20px",
         fontFamily: "Sans-serif",
-        padding: "40px",
+        paddingTop: "40px",
+        paddingLeft: "25px",
+        paddingRight: "25px",
         color: "black",
       }}
     >
-      <div
-        className="patch"
-        style={{
-          backgroundColor: "#2196BA",
-          height: "120px",
-          marginBottom: "40px",
-          borderRadius: "10px",
-        }}
-      >
-        <div className="logoContainer mt-5 flex justify-center items-center mx-auto">
-          <img
-            className="saffairlogo"
-            src="./assets/logofooter.png"
-            alt="logo"
-            height="50px"
-          />
-        </div>
-      </div>
       <br />
       <div className="justify-center">
-        <h2 className="text-center font-bold sm:text-3xl mb-4">CONTACT US</h2>
-        <p></p>
-        <br />
-        <br />
+        <div className="text-center font-bold sm:text-3xl mb-4">CONTACT US</div>
+        c
         <div className="justify-center flex">
           <p className="sm:text-2xl  ">
-            If you have any questions, suggestions, or feedback, please feel free
-            to reach out to us using the form below.
+            If you have any questions, suggestions, or feedback, please feel
+            free to reach out to us using the form below.
           </p>
         </div>
         <br />
@@ -121,17 +104,17 @@ const ContactUs = () => {
             </div>
             <div>
               <label>
-                Message
+                Message<span className="text-red-500 ml-1">*</span>
               </label>
               <br />
               <Textarea
                 rows="4"
                 cols="40"
                 id="msg"
+                required
                 value={umessage}
                 onChange={(e) => setMessage(e.target.value)}
               />
-              
             </div>
             <br />
             <Button
@@ -158,7 +141,8 @@ const ContactUs = () => {
             className="sm:text-3xl contactusmsg"
             style={{ fontWeight: "bold", textAlign: "center" }}
           >
-            Thank you for reaching out to us. We will get back to you as soon as possible.
+            Thank you for reaching out to us. We will get back to you as soon as
+            possible.
           </p>
         )}
         <br />

@@ -304,10 +304,7 @@ export default function WeatherUpdate() {
                     )}
                     {!weather.error && weather.data && weather.data.main ? (
                       <div className="bold">
-                        <div
-                          className=" thevery text-4xl   text-left"
-                          id="very"
-                        >
+                        <div className=" thevery   text-left" id="very">
                           {aqi === 4 ? "Very " : ""}
                         </div>
                         <p className="headtext  ">{air_quailty}</p>
@@ -363,11 +360,7 @@ export default function WeatherUpdate() {
                       Search
                     </Button>
                   </div>
-                  <div
-                    className="impdiv mt-1 pl-3"
-                   
-                    
-                  >
+                  <div className="impdiv mt-1 pl-3">
                     <div className="twoparts">
                       <div className="theaqi">
                         <div className="charttag">AQI : {aqiValue}</div>
@@ -408,7 +401,7 @@ export default function WeatherUpdate() {
                               <p className="n1name">
                                 SO<sub>2</sub>
                               </p>
-                              <p className="n4value ">{so2}</p>
+                              <p className="n3value ">{so2}</p>
                             </div>
                           </div>
                         </div>
@@ -465,7 +458,7 @@ export default function WeatherUpdate() {
                               />
                               <div className="n4data ">
                                 <p className="n4name">UV Index</p>
-                                <p className="n4value">3</p>
+                                <p className="n3value">3</p>
                               </div>
                             </div>
                           </div>
@@ -508,7 +501,7 @@ export default function WeatherUpdate() {
                               />
                               <div className="n4data ">
                                 <p className="n4name">UV Index</p>
-                                <p className="n4value">3</p>
+                                <p className="n3value">3</p>
                               </div>
                             </div>
                           </div>
@@ -518,8 +511,7 @@ export default function WeatherUpdate() {
                   </div>
                 </div>
               </div>
-            </div>
-          {" "}
+            </div>{" "}
           </div>
         )}
       </div>
