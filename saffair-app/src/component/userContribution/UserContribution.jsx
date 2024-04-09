@@ -132,12 +132,22 @@ export default function UserContribution() {
         {currentUser.isAdmin && (
           <Select
             onChange={(e) =>
-              setFormData({ ...formData, readingType: e.target.value })
+              setFormData({ ...formData, contributionType: e.target.value })
             }
           >
-            <option value="Blog">Blog</option>
-            <option value="News">News</option>
-            <option value="Update">Update</option>
+            <option value="N&U">News / Updates</option>
+            <option value="legal Updates">legal Updates</option>
+            <option value="Innovation">Innovation</option>
+            <option value="GYV">
+              Get Your Voice Bigger with Community (with Solution)
+            </option>
+            <option value="Reforms">Suggest a Reforms</option>
+            <option value="Campaigns">Join our Campaigns</option>
+            <option value="D/S">Donates / Sponsor</option>
+            <option value="AirAnalyzer">Get outdoor Air Analyzer</option>
+            <option value="Suggetions">
+              Need Community Support / Suggetions / Survey
+            </option>
           </Select>
         )}
         <div className="flex flex-col gap-4 sm:flex-row justify-between">
