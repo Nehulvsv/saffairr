@@ -56,7 +56,7 @@
 .shalf {
   /* background-color: red; */
   height: 100%;
-  width: 50%;
+  width: 70%;
   /* border: 10px solid  gray; */
 }
 
@@ -85,7 +85,8 @@
 .twoparts {
   /* border: 2px solid  gray; */
   height: 90%;
-  width: 50vw;
+  /* background-color: red; */
+  width: 100%;
   /* margin-top: 10%; */
   display: flex;
   flex-direction: column;
@@ -102,9 +103,7 @@
   margin-top: 100px;
 }
 
-.grido {
-  margin-top: 10px;
-}
+
 
 .wthr {
   margin-top: 40px;
@@ -114,9 +113,6 @@
   display: inline;
   font-weight: 500;
   font-size: 90px;
-  color: white;
-  /* font-family: Arial, Helvetica, sans-serif; */
-  /* margin-left: 70px; */
   font-family: "Raleway";
   margin: auto;
   color: white;
@@ -130,8 +126,8 @@
   text-align: left;
 }
 .thevery{
-  margin-left: 5px;
-  margin-bottom: -30px;
+  margin-left: 6px;
+  margin-bottom: -20px;
   color: white;
   text-shadow: 0 1px 0 #ccc, 0 6px 1px rgba(0, 0, 0, 0.1),
     0 0 5px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.3),
@@ -141,13 +137,12 @@
 }
 .wthr p,
 .thetag {
-  /* color: white; */
-  /* color: black; */
-  text-shadow: 0 1px 0 #a2a1a1, 0 6px 1px rgba(0, 0, 0, 0.1),
+
+  text-shadow: 0 0.5px 0 #131212, 0 6px 1px rgba(0, 0, 0, 0.1),
     0 0 5px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.3),
     0 3px 5px rgba(0, 0, 0, 0.2), 0 5px 10px rgba(0, 0, 0, 0.25),
     0 10px 10px rgba(0, 0, 0, 0.2), 0 20px 20px rgba(0, 0, 0, 0.15);
-  font-weight: bold;
+  /* font-weight: bold; */
 }
 
 .theaqi p,
@@ -208,7 +203,7 @@
   /* background-color: yellowgreen; */
   display: inline;
   font-family: "Raleway", sans-serif;
-  font-size: 120%;
+  font-size: 140%;
   font-weight: 600;
   color: white;
   text-align: left;
@@ -222,7 +217,7 @@
     rgba(255, 255, 255, 0.2)
   );
   height: 3px;
-  width: 80%;
+  width: 67%;
   margin-top: 20px;
   margin-bottom: 20px;
 }
@@ -259,7 +254,7 @@
 .n2data,
 .n4data {
   font-family: "Raleway", sans-serif;
-  font-size: 30px;
+  font-size: 20px;
   font-weight: 600;
   line-height: 35px;
   letter-spacing: 0em;
@@ -269,7 +264,7 @@
 
 .n3data {
   font-family: "Raleway", sans-serif;
-  font-size: 30px;
+  font-size: 20px;
   font-weight: 600;
   line-height: 35px;
   letter-spacing: 0em;
@@ -277,16 +272,7 @@
   padding-left: 30px;
 }
 
-.chartvalue {
-  padding-left: 20px;
-  font-family: "Raleway", sans-serif;
-  font-size: 25px;
-  font-weight: 600;
-  line-height: 35px;
-  letter-spacing: 0em;
-  color: white;
-  margin-top: 7px;
-}
+
 
 .grido {
   display: grid;
@@ -304,16 +290,13 @@
   margin-bottom: 0;
 }
 
-.sovalue {
-  margin-top: -10px;
-}
 
 .bar {
   height: 45px;
   border-radius: 10px;
   border: 1px solid #ccc;
   padding: 14px;
-  width: calc(70%);
+  width: calc(60%);
   box-sizing: border-box;
   float: right;
 }
@@ -424,7 +407,7 @@
   }
 
   .sgrid {
-    padding: 15px;
+    /* padding: 15px; */
     padding-top: 0px;
     margin-top: 0px;
   }
