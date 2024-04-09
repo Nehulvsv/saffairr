@@ -132,7 +132,7 @@ export default function Navbar({ _id }) {
           <a className="centerItem" onClick={scrollToTop}>
             Calculator
           </a>
-          {/* <div className="centerItem lg:flex items-center gap-4">
+          <div className="centerItem lg:flex items-center gap-4">
             <Dropdown
               label="Readings"
               size="2xl"
@@ -151,12 +151,12 @@ export default function Navbar({ _id }) {
                 <Dropdown.Item>Updates</Dropdown.Item>
               </Link>
             </Dropdown>
-          </div> */}
-          <Link to="/readings">
+          </div>
+          {/* <Link to="/readings">
             <a className="centerItem" onClick={scrollToTop}>
               Readings
             </a>
-          </Link>
+          </Link> */}
           <Link to="/aboutus">
             <a className="centerItem" onClick={scrollToTop}>
               About Us
