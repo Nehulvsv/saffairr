@@ -58,7 +58,7 @@ export default function Navbar({ _id }) {
     };
 
     fetchData();
-  }, []);
+  }, [currentUser._id]);
 
   console.log(coin);
   useEffect(() => {
@@ -247,7 +247,7 @@ export default function Navbar({ _id }) {
               <Dropdown.Item>Be a Contributor</Dropdown.Item>
             </Link>
             <Link to="/dashboard?tab=mycoins" onClick={scrollToTop}>
-              <Dropdown.Item>Coins</Dropdown.Item>
+              <Dropdown.Item> {coin} Coins</Dropdown.Item>
             </Link>
 
             <Dropdown.Divider />
