@@ -28,6 +28,7 @@ import Showevent from "../component/homepageComponent/Event/Showevent";
 import ContributorPost from "../component/contributorPost/ContributorPost";
 import EditContributorPost from "./blog/pages/editpost/EditContributorPost";
 import UserContribution from "../component/userContribution/UserContribution";
+import EventPage from "../component/eventpage/EventPage";
 
 // import { Discuss } from "react-loader-spinner";
 
@@ -73,6 +74,7 @@ export default function Home() {
                 <Route path="/contactus" element={<ContactUs />} />
                 {/* <div style={{ minHeight: "800px" }}> */}
                 <Route path="/post/:id" element={<PostPage />} />
+                <Route path="/events/:id" element={<EventPage />} />
                 {/* </div> */}
                 <Route path="/airquality" element={<AirQuality />} />
                 <Route path="/community" element={<Community />} />

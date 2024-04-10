@@ -112,7 +112,7 @@ export default function PostPage() {
                     className="postImg"
                     alt="post img"
                     srcSet=""
-                     style={{objectFit:'cover'}}
+                    style={{ objectFit: "cover" }}
                   />
 
                   <div className="blurTitle glass">
@@ -143,9 +143,6 @@ export default function PostPage() {
                 </div>
 
                 <div>
-                  <CommentSection postId={postInfo._id} />
-                </div>
-                <div>
                   {/* <div>
                   <Ratings />
                 </div> */}
@@ -154,6 +151,9 @@ export default function PostPage() {
                     options={postInfo.quizOptions}
                     ans={postInfo.correctAnswer}
                   />
+                  <div>
+                    <CommentSection postId={postInfo._id} />
+                  </div>
                 </div>
               </div>
               <div className="rightSide mt-6">
