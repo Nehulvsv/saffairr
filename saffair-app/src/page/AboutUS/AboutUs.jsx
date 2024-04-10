@@ -14,34 +14,18 @@ const AboutUsPage = () => {
         color: "black",
       }}
     >
-      {/* <div
-        className="patch"
-        style={{
-          // backgroundColor: "#2196BA",
-          height: "120px",
-          marginBottom: "40px",
-          // padding: "20px",
-          borderRadius: "10px",
-        }}
-      >
-         <div class="logoContainer mt-5 flex justify-center items-center mx-auto">
-          <img
-            class="saffairlogo"
-            src="./assets/logofooter.png"
-            alt="logo"
-            height="50px"
-          />
-        </div> 
-      </div> */}
+      
       <br />
-      <h2 className="text-center font-bold sm:text-3xl mb-4">ABOUT US</h2>
+      <div className="text-6xl sm:w-1/2 sm:ml-40 sm:font-bold text-customBlue">
+        About Us
+      </div>
       <br />
       <h2
         className="sm:text-3xl"
         style={{
           fontFamily: "Sans-serif",
-          textAlign: "center",
-          color: "#2196ba",
+          textAlign: "left",
+          marginLeft:'160px',
           fontWeight: "bold",
         }}
       >

@@ -1,0 +1,87 @@
+.contact-us-container {
+    margin: 20px auto;
+    max-width: 960px;
+  }
+  
+  .title {
+    font-size: 3rem;
+    font-weight: bold;
+    color: #3f9e9e;
+  }
+  
+  .description {
+    font-size: 1.25rem;
+    margin-top: 10px;
+  }
+  
+  .contact-section {
+    display: flex;
+    margin-top: 20px;
+  }
+  
+  .contact-info {
+    width: 25%;
+  }
+  
+  .contact-info-item {
+    margin-bottom: 20px;
+  }
+  
+  .contact-label {
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+  
+  .contact-text {
+    font-size: 1.25rem;
+  }
+  
+  .contact-email {
+    color: #3f9e9e;
+    font-weight: bold;
+  }
+  
+  .horizontal-line {
+    height: 1px;
+    background-color: black;
+    margin: 10px 0;
+  }
+  
+  .form {
+    width: 75%;
+  }
+  
+  .form-group {
+    margin-bottom: 20px;
+  }
+  
+  .label {
+    font-size: 1.25rem;
+  }
+  
+  .input,
+  .textarea {
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .textarea {
+    resize: vertical;
+  }
+  
+  .required {
+    color: red;
+    margin-left: 5px;
+  }
+  
+  .submit-button {
+    margin-top: 20px;
+  }
+  
+  .loading-text {
+    margin-left: 5px;
+  }
+  
