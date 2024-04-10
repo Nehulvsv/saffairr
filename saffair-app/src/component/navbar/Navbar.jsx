@@ -39,7 +39,30 @@ export default function Navbar({ _id }) {
   // const handleTitleClick = () => {
   //   setIsTitleClicked(!isTitleClicked); // Set the state to true when a title is clicked
   // };
+  const [userData, setUserData] = useState({});
+  useEffect(() => {
+    const fetchUserData = async () => {
+      try {
+        const res = await fetch(
+          `http://localhost:6600/api/user/${currentUser._id}`
+        );
+        if (res.ok) {
+          const data = await res.json();
+          setUserData(data);
+        } else {
+          console.log("User not found !!");
+        }
+      } catch (error) {
+        console.log(error);
+      }
+    };
 
+    fetchUserData();
+  }, [currentUser._id]);
+
+  // Ensure userData and userData.coinHistory exist before accessing
+  const coinHistory =
+    userData && userData.coinHistory ? userData.coinHistory : [];
   useEffect(() => {
     // Fetch posts from the server
     fetch("http://localhost:6600/post")
@@ -228,6 +251,17 @@ export default function Navbar({ _id }) {
             <Link to={"/dashboard?tab=profile"} onClick={scrollToTop}>
               <Dropdown.Item>Profile</Dropdown.Item>
             </Link>
+            <Link to="/dashboard?tab=be-a-contributor" onClick={scrollToTop}>
+              <Dropdown.Item>Be a Contributor</Dropdown.Item>
+            </Link>
+            <Link to="/dashboard?tab=mycoins" onClick={scrollToTop}>
+              <Dropdown.Item >
+              <div >
+            <span>{userData.totalCoins}</span> coins
+          </div>
+              </Dropdown.Item>
+            </Link>
+            
             <Dropdown.Divider />
             <Dropdown.Item
               onClick={() => {

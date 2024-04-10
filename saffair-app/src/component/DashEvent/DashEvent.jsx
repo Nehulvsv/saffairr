@@ -107,6 +107,24 @@ export default function CreatePost() {
               setFormData({ ...formData, eventTitle: e.target.value })
             }
           />
+          <div>
+                          
+                          <TextInput
+                            type="date"
+                            id="startDate"
+                            // onChange={handleChange}
+                            required
+                          />
+                        </div>
+                        <div>
+                         
+                          <TextInput
+                            type="date"
+                            id="endDate"
+                            // onChange={handleChange}
+                            required
+                          />
+                        </div>
         </div>
         <div className="flex gap-4 items-center justify-between border-4 border-teal-500 border-dotted p-3">
           <FileInput

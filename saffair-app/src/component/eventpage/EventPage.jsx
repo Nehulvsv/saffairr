@@ -118,13 +118,15 @@ export default function EventPage() {
 
   return (
     <>
-      <div className="mt-20">
+      <div className="mt-20" >
         {eventInfo ? (
-          <>
-            <p>Event name: {eventInfo.eventTitle}</p>
-            <img src={eventInfo.eventImage} alt="eventImage" />
+          <
+
+          >
+            <div className="flex justify-center text-3xl mb-4">Event name: {eventInfo.eventTitle}</div>
+            <img src={eventInfo.eventImage} className="w-full h-screen object-cover" alt="eventImage" />
             <div
-              className="post-content"
+              className="post-content   mb-6 mt-4 bg-red-200"
               dangerouslySetInnerHTML={{ __html: eventInfo.eventDescription }}
             />
 
