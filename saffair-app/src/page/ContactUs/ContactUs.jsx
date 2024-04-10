@@ -21,6 +21,7 @@ const ContactUs = () => {
   };
   const [uname, setName] = useState("");
   const [uemail, setEmail] = useState("");
+  const [unumber, setNumber] = useState("");
   const [umessage, setMessage] = useState("");
 
   const handleSubmit = async (e) => {
@@ -102,6 +103,20 @@ const ContactUs = () => {
                 className="input"
                 required
                 onChange={(e) => setEmail(e.target.value)}
+              />
+            </div>
+            <div className="form-group">
+              <label htmlFor="Contact no." className="label">
+                Your Contact no.<span className="required">*</span>
+              </label>
+              <input
+                type="number"
+                id="contact no."
+                value={unumber}
+                placeholder="Number"
+                className="input"
+                required
+                onChange={(e) => setNumber(e.target.value)}
               />
             </div>
             <div className="form-group">
