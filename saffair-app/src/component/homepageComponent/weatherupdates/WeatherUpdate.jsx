@@ -304,10 +304,7 @@ export default function WeatherUpdate() {
                     )}
                     {!weather.error && weather.data && weather.data.main ? (
                       <div className="bold">
-                        <div
-                          className=" thevery text-4xl   text-left"
-                          id="very"
-                        >
+                        <div className=" thevery   text-left" id="very">
                           {aqi === 4 ? "Very " : ""}
                         </div>
                         <p className="headtext  ">{air_quailty}</p>
@@ -363,15 +360,7 @@ export default function WeatherUpdate() {
                       Search
                     </Button>
                   </div>
-                  <div
-                    className="impdiv mt-1 pl-3"
-                    style={{
-                      borderRadius: "20px",
-                      backgroundColor: "rgba(33, 150, 186, 0.2)",
-                      width: "75%",
-                    }}
-                    
-                  >
+                  <div className="impdiv mt-1 pl-3">
                     <div className="twoparts">
                       <div className="theaqi">
                         <div className="charttag">AQI : {aqiValue}</div>
@@ -412,7 +401,7 @@ export default function WeatherUpdate() {
                               <p className="n1name">
                                 SO<sub>2</sub>
                               </p>
-                              <p className="n4value ">{so2}</p>
+                              <p className="n3value ">{so2}</p>
                             </div>
                           </div>
                         </div>
@@ -428,7 +417,7 @@ export default function WeatherUpdate() {
                             <div className="n1">
                               <FontAwesomeIcon
                                 icon={faTemperatureHigh}
-                                className="text-4xl lg"
+                                className="text-2xl lg"
                               />
                               <div className="n1data">
                                 <p className="n1name">Temperature</p>
@@ -441,11 +430,11 @@ export default function WeatherUpdate() {
                             <div className="n2">
                               <FontAwesomeIcon
                                 icon={faWind}
-                                className="text-4xl lg"
+                                className="text-2xl lg"
                               />
                               <div className="n2data">
                                 <p className="n2name">Wind</p>
-                                <p className="n2value">
+                                <p className="n1value">
                                   {weather.data.wind.speed} m/s
                                 </p>
                               </div>
@@ -453,7 +442,7 @@ export default function WeatherUpdate() {
                             <div className="n3 special">
                               <FontAwesomeIcon
                                 icon={faDroplet}
-                                className="text-4xl lg"
+                                className="text-2xl lg"
                               />
                               <div className="n3data runique plus ">
                                 <p className="n3name">Humidity</p>
@@ -465,11 +454,11 @@ export default function WeatherUpdate() {
                             <div className="n4 special">
                               <FontAwesomeIcon
                                 icon={faSun}
-                                className="text-4xl lg"
+                                className="text-2xl lg"
                               />
                               <div className="n4data ">
                                 <p className="n4name">UV Index</p>
-                                <p className="n4value">3</p>
+                                <p className="n3value">3</p>
                               </div>
                             </div>
                           </div>
@@ -512,7 +501,7 @@ export default function WeatherUpdate() {
                               />
                               <div className="n4data ">
                                 <p className="n4name">UV Index</p>
-                                <p className="n4value">3</p>
+                                <p className="n3value">3</p>
                               </div>
                             </div>
                           </div>
@@ -522,8 +511,7 @@ export default function WeatherUpdate() {
                   </div>
                 </div>
               </div>
-            </div>
-            //{" "}
+            </div>{" "}
           </div>
         )}
       </div>

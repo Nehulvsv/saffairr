@@ -59,7 +59,7 @@ export default function SignIn() {
           <Link to="/" className="font-bold dark:text-white text-4xl">
             <img src="./assets/logo.png" alt="" className="w-24" />
           </Link>
-          <p className="text-sm mt-5">welcome to the saffair weather app</p>
+          <p className="text-lg mt-5 font-bold">Welcome to Saffair</p>
         </div>
         <div className="flex-1">
           <form className="flex flex-col gap-4" onSubmit={handleSubmit}>

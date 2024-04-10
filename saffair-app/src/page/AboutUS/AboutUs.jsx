@@ -1,67 +1,76 @@
 import React from "react";
+import Vision from "../../component/homepageComponent/vision mission/Vision";
 
 const AboutUsPage = () => {
   return (
     <div
-      className=" flex flex-col mt-20 sm:mx-20 bg-gray-100 border-2 border-gray-400 mb-10"
+      className=" flex flex-col mt-20 "
       style={{
         borderRadius: "20px",
         fontFamily: "Sans-serif",
-        padding: "40px",
+        paddingTop: "40px",
+        paddingLeft: "25px",
+        paddingRight: "25px",
         color: "black",
       }}
     >
-      <div
+      {/* <div
         className="patch"
         style={{
-          backgroundColor: "#2196BA",
+          // backgroundColor: "#2196BA",
           height: "120px",
           marginBottom: "40px",
+          // padding: "20px",
           borderRadius: "10px",
         }}
       >
-        <div class="logoContainer mt-5 flex justify-center items-center mx-auto">
+         <div class="logoContainer mt-5 flex justify-center items-center mx-auto">
           <img
             class="saffairlogo"
             src="./assets/logofooter.png"
             alt="logo"
             height="50px"
           />
-        </div>
-      </div>
+        </div> 
+      </div> */}
       <br />
       <h2 className="text-center font-bold sm:text-3xl mb-4">ABOUT US</h2>
       <br />
       <h2
-        className="sm:text-4xl"
-        style={{ fontFamily: "Sans-serif", textAlign: "center" }}
+        className="sm:text-3xl"
+        style={{
+          fontFamily: "Sans-serif",
+          textAlign: "center",
+          color: "#2196ba",
+          fontWeight: "bold",
+        }}
       >
         Welcome To <span id="W_Name1">Saffair</span>
       </h2>
       <br />
       <br />
-      <p className="sm:text-2xl ">
-        <span id="W_Name2">Saffair</span> is a Professional{" "}
-        <span id="W_Type1">Environmental Awareness Community</span> Platform.
-        Here we will only provide you with interesting content that you will
-        enjoy very much. We are committed to providing you the best of{" "}
-        <span id="W_Type2">Environmental Awareness Community</span>, with a
-        focus on reliability and{" "}
-        <span id="W_Spec">Community and Data Given</span>. we strive to turn our
-        passion for <span id="W_Type3">Environmental Awareness Community</span>{" "}
-        into a thriving website. We hope you enjoy our{" "}
-        <span id="W_Type4">Environmental Awareness Community</span> as much as
-        we enjoy giving them to you.
-      </p>
+      <div className="sm:text-lg  justify-center flex ">
+        <div className="w-3/4">
+          Saffair is a Professional Environmental Awareness Community Platform.
+          Here we will only provide you with interesting content that you will
+          enjoy very much. We are committed to providing you the best of
+          Environmental Awareness Community, with a focus on reliability and
+          Community and Data Given. We strive to turn our passion for
+          Environmental Awareness Community into a thriving website. We hope you
+          enjoy our Environmental Awareness Community as much as we enjoy giving
+          them to you.
+          <br />
+          <br />I will keep on posting such valuable and knowledgeable
+          information on my Website for all of you. Your love and support
+          matters a lot.
+        </div>
+      </div>
       <br />
-      <p className="sm:text-2xl">
-        I will keep on posting such valuable and knowledgeable information on my
-        Website for all of you. Your love and support matters a lot.
-      </p>
+
       <br />
       <br />
       <p
-        className="sm:text-3xl"
+        className="sm:text-lg"
         style={{ fontWeight: "bold", textAlign: "center" }}
       >
         Thank you For Visiting Our Site
@@ -69,15 +78,23 @@ const AboutUsPage = () => {
         <br />
         <br />
         <span
-          className="sm:text-3xl"
-          style={{ color: "#2196ba", fontWeight: "bold", textAlign: "center" }}
+          className="sm:text-lg"
+          style={{
+            color: "#2196ba",
+            fontWeight: "bold",
+            textAlign: "center",
+          }}
         >
           Have A Great Day !
         </span>
       </p>
       <br />
+      <div style={{ borderBottom: "solid 2px black", width: "100%" }}></div>
       <br />
-      <br />
+
+      <div>
+        <Vision />
+      </div>
     </div>
   );
 };

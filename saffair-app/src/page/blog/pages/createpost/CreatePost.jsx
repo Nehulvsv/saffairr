@@ -233,6 +233,7 @@ export default function CreatePost() {
             name="question"
             value={quizData.question}
             onChange={handleQuizChange}
+            className="mb-2 mt-2"
           />
           {quizData.options.map((option, index) => (
             <TextInput
@@ -241,6 +242,7 @@ export default function CreatePost() {
               placeholder={`Option ${index + 1}`}
               value={option}
               onChange={(e) => handleOptionChange(index, e.target.value)}
+              className="mb-2"
             />
           ))}
           <TextInput
@@ -249,6 +251,7 @@ export default function CreatePost() {
             name="correctAnswer"
             value={quizData.correctAnswer}
             onChange={handleQuizChange}
+            className="mb-2"
           />
           <Button onClick={handleQuizSubmit}>Add Quiz</Button>
         </div>
