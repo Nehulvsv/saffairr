@@ -271,6 +271,7 @@ export default function WeatherUpdate() {
       imageUrl: imgValue,
       aqiValue: newAqiValue,
       airQuality: newAirQuality,
+      city: weather.data.name,
     }));
   }, [aqi]); // Run this effect whenever the 'aqi' state changes
 
@@ -349,7 +350,6 @@ export default function WeatherUpdate() {
                       onChange={(event) => setInput(event.target.value)}
                       onKeyPress={handleKeyPress}
                     />
-                    {errormessage ? "city not found" : ""}
                     <Button
                       outline
                       color="light"
@@ -361,6 +361,7 @@ export default function WeatherUpdate() {
                       Search
                     </Button>
                   </div>
+                  {errormessage ? <p className="not">City not found</p> : ""}
                   <div className="impdiv mt-4 pl-3">
                     <div className="twoparts">
                       <div className="theaqi">
@@ -379,7 +380,9 @@ export default function WeatherUpdate() {
                                 PM
                                 <p className="grpvalue">2.5</p>
                               </p>
-                              <p className="n1value ">{pm2_5} <span id="units">ug/m³</span></p>
+                              <p className="n1value ">
+                                {pm2_5} <span id="units">ug/m³</span>
+                              </p>
                             </div>
                           </div>
                           <div className="n1 sgrp">
@@ -388,13 +391,17 @@ export default function WeatherUpdate() {
                                 PM
                                 <p className="grpvalue">10</p>
                               </p>
-                              <p className="n1value ">{pm10} <span id="units">ug/m³</span></p>
+                              <p className="n1value ">
+                                {pm10} <span id="units">ug/m³</span>
+                              </p>
                             </div>
                           </div>
                           <div className="n3 sgrp">
                             <div className="n3data txt">
                               <p className="n1name">CO</p>
-                              <p className="n3value">{co} <span id="units">ug/m³</span></p>
+                              <p className="n3value">
+                                {co} <span id="units">ug/m³</span>
+                              </p>
                             </div>
                           </div>
                           <div className="n4 sgrp">
@@ -402,7 +409,9 @@ export default function WeatherUpdate() {
                               <p className="n1name">
                                 SO<sub>2</sub>
                               </p>
-                              <p className="n3value ">{so2} <span id="units">ug/m³</span></p>
+                              <p className="n3value ">
+                                {so2} <span id="units">ug/m³</span>
+                              </p>
                             </div>
                           </div>
                         </div>
