@@ -239,7 +239,7 @@ export default function Contributors() {
                 
                 <label>Location</label>
                 <div className="grid grid-cols-1 mb-2 md:grid-cols-4 sm:grid-cols-2 gap-4 mt-2">
-                  <div>
+                  {/* <div>
                     <label>
                       Country<span className="text-red-500 ml-1">*</span>
                     </label>
@@ -250,7 +250,7 @@ export default function Contributors() {
                       onChange={handleChange}
                       required
                     />
-                  </div>
+                  </div> */}
                   <div>
                     <label>
                       City<span className="text-red-500 ml-1">*</span>

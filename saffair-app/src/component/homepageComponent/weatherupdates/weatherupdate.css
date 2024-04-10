@@ -106,7 +106,7 @@
 }
 
 .wthr {
-  margin-top: 40px;
+  margin-top: 20px;
 }
 
 .headtext {
@@ -187,7 +187,7 @@
   /* background-color: yellowgreen; */
   display: inline;
   font-family: "Raleway", sans-serif;
-  font-size: 140%;
+  font-size: 160%;
   font-weight: 600;
   color: white;
   text-align: left;
@@ -268,16 +268,17 @@
 .impdiv {
   border-radius: 20px;
   background-color: rgba(33, 150, 186, 0.2);
-  width: 76%;
+  width: 75%;
 }
 .bar {
-  height: 45px;
-  border-radius: 10px;
-  border: 1px solid #ccc;
+  height: 70px;
+  /* border-radius: 15px; */
+  /* border: 1px solid #ccc; */
   padding: 14px;
   width: calc(60%);
   box-sizing: border-box;
   float: right;
+  /* margin-top: -23px; */
 }
 .thevery {
   font-size: 30px;

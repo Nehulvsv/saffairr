@@ -26,11 +26,11 @@ const AboutUsPage = () => {
         </div>
       </div>
       {/* <div className="separator"></div> */}
-      <div className="vnm flex">
+      <div className="vnms flex">
 
-        <div className="vision">
-          <div className="hh1">Vision</div>
-          <div className="vgoal">
+        <div className="visions">
+          <div className="hh1s">Vision</div>
+          <div className="vgoals">
             <p>
               Having a clear vision of the world your product and team are trying
               to create brings clarity to what projects you initiate, who you hire
@@ -44,9 +44,9 @@ const AboutUsPage = () => {
             </p>
           </div>
           </div>
-          <div className="mission">
-            <div className="hh1">Mission</div>
-            <div className="mgoal">
+          <div className="missions">
+            <div className="hh1s">Mission</div>
+            <div className="mgoals">
               <p>
                 Having a clear vision of the world your product and team are trying
                 to create brings clarity to what projects you initiate, who you hire
