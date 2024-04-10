@@ -41,12 +41,11 @@ export default function Navbar({ _id }) {
   //   setIsTitleClicked(!isTitleClicked); // Set the state to true when a title is clicked
   // };
 
+  const id = currentUser ? currentUser._id : null;
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await fetch(
-          `http://localhost:6600/api/user/${currentUser._id}`
-        );
+        const res = await fetch(`http://localhost:6600/api/user/${id}`);
 
         if (res.ok) {
           const data = await res.json();
@@ -58,9 +57,8 @@ export default function Navbar({ _id }) {
     };
 
     fetchData();
-  }, [currentUser._id]);
+  }, [id]);
 
-  console.log(coin);
   useEffect(() => {
     // Fetch posts from the server
     fetch("http://localhost:6600/post")
