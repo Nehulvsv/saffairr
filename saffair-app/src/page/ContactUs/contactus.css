@@ -26,7 +26,7 @@
 .title {
   font-size: 3rem;
   font-weight: bold;
-  color: #3f9e9e;
+  color: #2196ba;
 }
 
 .description {
@@ -58,7 +58,7 @@
 }
 
 .contact-email {
-  color: #3f9e9e;
+  color: #2196ba;
   font-weight: bold;
 }
 
@@ -70,6 +70,13 @@
 
 .form {
   width: 75%;
+}
+
+#name.input,
+#email.input,
+#contactno.input,
+#msg.textarea {
+  border-radius: 7px;
 }
 
 .form-group {

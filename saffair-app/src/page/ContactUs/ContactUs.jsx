@@ -111,7 +111,7 @@ const ContactUs = () => {
               </label>
               <input
                 type="number"
-                id="contact no."
+                id="contactno"
                 value={unumber}
                 placeholder="Number"
                 className="input"
