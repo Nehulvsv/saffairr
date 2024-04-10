@@ -191,7 +191,7 @@ export default function DashSidebar() {
                   Comments
                 </Sidebar.Item>
               </Link>
-              <Link to="/dashboard?tab=event" onClick={scrollToTop}>
+              {/* <Link to="/dashboard?tab=event" onClick={scrollToTop}>
                 <Sidebar.Item
                   active={tab === "event"}
                   icon={HiAnnotation}
@@ -199,7 +199,27 @@ export default function DashSidebar() {
                 >
                   Events
                 </Sidebar.Item>
-              </Link>
+              </Link> */}
+            </>
+          )}
+          {currentUser.isAdmin && (
+            <>
+              <Sidebar.Collapse icon={HiDocumentText} label="Events">
+                <Link to="/dashboard?tab=event" onClick={scrollToTop}>
+                  <Sidebar.Item
+                    icon={FaClipboardList}
+                    active={tab === "event"}
+                    as="div"
+                  >
+                    Create Event
+                  </Sidebar.Item>
+                </Link>
+                <Link to="/dashboard?tab=posts" onClick={scrollToTop}>
+                  <Sidebar.Item action={tab === "posts"} icon={HiDocumentText}>
+                    List of Events
+                  </Sidebar.Item>
+                </Link>
+              </Sidebar.Collapse>
             </>
           )}
           {currentUser && (

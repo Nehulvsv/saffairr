@@ -1,7 +1,10 @@
 import React, { useState } from "react";
 import Ratings from "../Ratings/Ratings";
+import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 
 const Qna = ({ que, options, ans }) => {
+  const { currentUser } = useSelector((state) => state.user);
   const [selectedOption, setSelectedOption] = useState("");
   const [showPopup, setShowPopup] = useState(false);
   const [showSubmit, setShowSubmit] = useState(true);
@@ -70,11 +73,20 @@ const Qna = ({ que, options, ans }) => {
         </div>
       </div>
       <Ratings />
-      {showSubmit && (
-        <div className="submitbutton flex justify-center">
-          <button className="submit" onClick={handleSubmit}>
-            Submit
-          </button>
+      {currentUser ? (
+        showSubmit && (
+          <div className="submitbutton flex justify-center">
+            <button className="submit" onClick={handleSubmit}>
+              Submit
+            </button>
+          </div>
+        )
+      ) : (
+        <div className="text-sm text-teal-500 my-5 flex gap-1">
+          {/* You must be signed in to submit the quiz.
+          <Link className="text-blue-500 hover:underline" to={"/login"}>
+            Sign In
+          </Link> */}
         </div>
       )}
       {showPopup && (
