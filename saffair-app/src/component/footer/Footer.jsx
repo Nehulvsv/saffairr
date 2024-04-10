@@ -94,7 +94,7 @@ export default function Home() {
           <a href="">Your Ads Privacy Choices</a>
         </div>
         <div className="copyright">
-          © 1996-2023, Amazon.com, Inc. or its affiliates
+        <Link to="https://agevole.in/" target="_blank">  ©2024 Saffair All rights reserved | Design and Developed by Agevole Innovatio </Link>
         </div>
       </div>
     </footer>

@@ -32,6 +32,7 @@ import {
   faSquareInstagram,
   faSquareXTwitter,
   faLinkedin,
+  faSquareWhatsapp,
 } from "@fortawesome/free-brands-svg-icons";
 import { useDispatch } from "react-redux";
 import { HiOutlineExclamationCircle } from "react-icons/hi";
@@ -328,6 +329,18 @@ export default function DashProfile() {
                   name="linkedin"
                   onChange={handleChange}
                   defaultValue={currentUser.linkedin}
+                />
+              </div>
+              <div className="linkedinpart flex gap-2 mb-2">
+                <FontAwesomeIcon icon={faSquareWhatsapp} className="text-2xl mt-2" />
+                <TextInput
+                  type="text"
+                  placeholder="WhatsApp"
+                  id="WhatsApp"
+                  className="w-full ml-1"
+                  name="WhatsApp"
+                  onChange={handleChange}
+                  defaultValue={currentUser.Whatsapp}
                 />
               </div>
             </div>
