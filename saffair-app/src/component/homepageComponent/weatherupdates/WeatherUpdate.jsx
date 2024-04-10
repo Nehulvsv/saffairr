@@ -15,6 +15,7 @@ import { cityContext } from "../../../page/Home";
 import axios from "axios";
 import { Button, Spinner } from "flowbite-react";
 import { WeatherImageContext } from "../../../page/Home";
+import { TextInput } from "flowbite-react";
 
 export default function WeatherUpdate() {
   const [errormessage, setErormessage] = useState(false);
@@ -339,7 +340,7 @@ export default function WeatherUpdate() {
                 </div>
                 <div className="shalf">
                   <div className="scontainer">
-                    <input
+                    <TextInput
                       type="text"
                       className="bar"
                       placeholder="Your Country, City or Location"
@@ -360,7 +361,7 @@ export default function WeatherUpdate() {
                       Search
                     </Button>
                   </div>
-                  <div className="impdiv mt-1 pl-3">
+                  <div className="impdiv mt-4 pl-3">
                     <div className="twoparts">
                       <div className="theaqi">
                         <div className="charttag">AQI : {aqiValue}</div>
@@ -378,7 +379,7 @@ export default function WeatherUpdate() {
                                 PM
                                 <p className="grpvalue">2.5</p>
                               </p>
-                              <p className="n1value ">{pm2_5}</p>
+                              <p className="n1value ">{pm2_5} <span id="units">ug/m³</span></p>
                             </div>
                           </div>
                           <div className="n1 sgrp">
@@ -387,13 +388,13 @@ export default function WeatherUpdate() {
                                 PM
                                 <p className="grpvalue">10</p>
                               </p>
-                              <p className="n1value ">{pm10}</p>
+                              <p className="n1value ">{pm10} <span id="units">ug/m³</span></p>
                             </div>
                           </div>
                           <div className="n3 sgrp">
                             <div className="n3data txt">
                               <p className="n1name">CO</p>
-                              <p className="n3value">{co}</p>
+                              <p className="n3value">{co} <span id="units">ug/m³</span></p>
                             </div>
                           </div>
                           <div className="n4 sgrp">
@@ -401,7 +402,7 @@ export default function WeatherUpdate() {
                               <p className="n1name">
                                 SO<sub>2</sub>
                               </p>
-                              <p className="n3value ">{so2}</p>
+                              <p className="n3value ">{so2} <span id="units">ug/m³</span></p>
                             </div>
                           </div>
                         </div>
