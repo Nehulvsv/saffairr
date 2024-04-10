@@ -13,14 +13,12 @@
 /* start of new css */
 .weather-container {
   position: relative;
-
 }
 .wicon {
   position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
-
 }
 .aqi-overlay {
   position: absolute;
@@ -33,16 +31,21 @@
 
 .aqi-value {
   font-size: 24px;
-  font-family: 'Raleway';
+  font-family: "Raleway";
   font-weight: bold;
 }
 
 .air-quality {
   font-size: 42px;
-  font-family: 'Raleway';
+  font-family: "Raleway";
   font-weight: bold;
 }
 
+.thecity {
+  font-size: 30px;
+  font-family: "Raleway";
+  font-weight: bold;
+}
 /* end of new css */
 .wicon {
   height: 100%;
