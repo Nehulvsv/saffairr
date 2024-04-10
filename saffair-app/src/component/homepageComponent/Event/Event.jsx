@@ -1,13 +1,13 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./event.css";
 import { Link } from "react-router-dom";
 
 const Event = () => {
   const [selectedOption, setSelectedOption] = useState("");
-
-  const handleOptionChange = (event) => {
-    setSelectedOption(event.target.value);
-  };
+  // useEffect(() => {
+  //   const fetchData  = async () => {
+  //     let response = await fetch("http://localhost:6600/api/events/Events/")
+  // },[])
 
   return (
     <div className="main">

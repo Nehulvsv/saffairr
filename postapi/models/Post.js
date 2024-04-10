@@ -39,6 +39,10 @@ const PostSchema = new Schema(
       type: String,
       default: "Blog",
     },
+    contributionType: {
+      type: String,
+      // default: "Blog",u8
+    },
     slug: {
       type: String,
       required: true,

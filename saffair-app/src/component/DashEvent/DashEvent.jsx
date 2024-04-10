@@ -1,284 +1,188 @@
-import React, { useState, useRef } from "react";
-import { Button, TextInput, Textarea, Modal } from "flowbite-react";
-import { Table } from "flowbite-react";
-import { useSelector } from "react-redux";
-import { uploadBytesResumable, getStorage, ref, getDownloadURL } from "firebase/storage";
+import { Alert, Button, FileInput, Select, TextInput } from "flowbite-react";
+import ReactQuill from "react-quill";
+import "react-quill/dist/quill.snow.css";
+import {
+  getDownloadURL,
+  getStorage,
+  ref,
+  uploadBytesResumable,
+} from "firebase/storage";
 import { app } from "../../firebase";
-import { useDispatch } from "react-redux";
-import { Link } from "react-router-dom";
+import { useState } from "react";
+import { CircularProgressbar } from "react-circular-progressbar";
+import "react-circular-progressbar/dist/styles.css";
+import { useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
 
-export default function DashProfile() {
-  const [bio, setBio] = useState("");
-  const [imageFile, setImageFile] = useState(null);
-  const [formData, setFormData] = useState({}); // Define formData state variable
+export default function CreatePost() {
+  const [file, setFile] = useState(null);
+  const [imageUploadProgress, setImageUploadProgress] = useState(null);
+  const [imageUploadError, setImageUploadError] = useState(null);
+  const [formData, setFormData] = useState({});
+  const [publishError, setPublishError] = useState(null);
+  // const { currentUser } = useSelector((state) => state.user);
 
-  const { currentUser, error, loading } = useSelector((state) => state.user);
-  const filePickerRef = useRef();
-  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
-  const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.id]: e.target.value });
-  };
-  const [openModal, setOpenModal] = useState(false);
-  const [imagePreviewField, setImagePreviewField] = useState(null); // State for image preview in fields
-  const [imagePreviewModal, setImagePreviewModal] = useState(null); // State for image preview in modal
-
-  const handleImageChange = (e) => {
-    const selectedFile = e.target.files[0];
-    if (selectedFile) {
-      setImageFile(selectedFile);
-      const reader = new FileReader();
-      reader.onloadend = () => {
-        setImagePreviewField(reader.result); // Set image preview for fields
-      };
-      reader.readAsDataURL(selectedFile);
+  const handleUpdloadImage = async () => {
+    try {
+      if (!file) {
+        setImageUploadError("Please select an image");
+        return;
+      }
+      setImageUploadError(null);
+      const storage = getStorage(app);
+      const fileName = new Date().getTime() + "-" + file.name;
+      const storageRef = ref(storage, fileName);
+      const uploadTask = uploadBytesResumable(storageRef, file);
+      uploadTask.on(
+        "state_changed",
+        (snapshot) => {
+          const progress =
+            (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+          setImageUploadProgress(progress.toFixed(0));
+        },
+        (error) => {
+          setImageUploadError("Image upload failed");
+          setImageUploadProgress(null);
+        },
+        () => {
+          getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
+            setImageUploadProgress(null);
+            setImageUploadError(null);
+            setFormData({ ...formData, EventImage: downloadURL });
+          });
+        }
+      );
+    } catch (error) {
+      setImageUploadError("Image upload failed");
+      setImageUploadProgress(null);
+      console.log(error);
     }
   };
-
-  const handleImageChangeModal = (e) => {
-    const selectedFile = e.target.files[0];
-    if (selectedFile) {
-      setImageFile(selectedFile);
-      const reader = new FileReader();
-      reader.onloadend = () => {
-        setImagePreviewModal(reader.result); // Set image preview for modal
-      };
-      reader.readAsDataURL(selectedFile);
-    }
-  };
-
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Handle form submission, including the image file
+    try {
+      const res = await fetch("http://localhost:6600/api/events", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        credentials: "include",
+        body: JSON.stringify(formData),
+      });
+      const data = await res.json();
+      if (!res.ok) {
+        setPublishError(data.message);
+        return;
+      }
+
+      if (res.ok) {
+        setPublishError(null);
+        // navigate(`/post/${data.slug}`);
+        // navigate(`/blog`);
+        alert("event created successfully!  ");
+      }
+    } catch (error) {
+      setPublishError("Something went wrong");
+    }
   };
+
+  // console.log(formData);
 
   return (
-    <div className="mx-auto p-3 w-full">
-      <h1 className="mt-1 mb-3 text-left font-semibold text-3xl">
-        Create Events
+    <div className="p-3 max-w-3xl mx-auto mt-8 min-h-screen">
+      <h1 className="text-center text-3xl my-7 font-semibold">
+        Create A Event
       </h1>
-      <form onSubmit={handleSubmit}>
-      <div className="grid sm:grid-cols-3 gap-4 w-full">
-          <div>
-            <label>
-              Event Name<span className="text-red-500 ml-1">*</span>
-            </label>
-            <TextInput
-              type="text"
-              placeholder="Event Name"
-              id="eventName"
-              onChange={handleChange}
-              required
-            />
-          </div>
-          <div>
-            <label>
-              Start Date<span className="text-red-500 ml-1">*</span>
-            </label>
-            <TextInput
-              type="date"
-              id="startDate"
-              onChange={handleChange}
-              required
-            />
-          </div>
-          <div>
-            <label>
-              End Date<span className="text-red-500 ml-1">*</span>
-            </label>
-            <TextInput
-              type="date"
-              id="endDate"
-              onChange={handleChange}
-              required
-            />
-          </div>
-          <div className="bio mb-3">
-            <div>
-              <label>
-                Description<span className="text-red-500 ml-1">*</span>
-              </label>
-              <br />
-              <Textarea
-                rows="4"
-                id="bio"
-                value={bio}
-                className="w-full"
-                maxLength={200}
-                onChange={(e) => setBio(e.target.value)}
-                required
-              />
-              <p className="text-gray-500 text-xs">
-                {200 - bio.length} characters remaining
-              </p>
-            </div>
-          </div>
-        </div>
-        <div>
-          <label>
-            Upload Image<span className="text-red-500 ml-1">*</span>
-          </label>
+      <form className="flex flex-col gap-4" onSubmit={handleSubmit}>
+        {/* {currentUser.isAdmin && (
+          <Select
+            onChange={(e) =>
+              setFormData({ ...formData, readingType: e.target.value })
+            }
+          >
+            <option value="Blog">Blog</option>
+            <option value="News">News</option>
+            <option value="Update">Update</option>
+          </Select>
+        )} */}
+        <div className="flex flex-col gap-4 sm:flex-row justify-between">
           <TextInput
+            type="text"
+            placeholder="Title"
+            required
+            id="eventTitle"
+            className="flex-1"
+            onChange={(e) =>
+              setFormData({ ...formData, eventTitle: e.target.value })
+            }
+          />
+          {/* <Select
+            onChange={(e) =>
+              setFormData({ ...formData, category: e.target.value })
+            }
+          >
+            <option value="uncategorized">Select a category</option>
+            <option value="agriculture">Agriculture</option>
+            <option value="bollywood">Bollywood</option>
+            <option value="business">Business</option>
+    
+          </Select> */}
+        </div>
+        <div className="flex gap-4 items-center justify-between border-4 border-teal-500 border-dotted p-3">
+          <FileInput
             type="file"
             accept="image/*"
-            ref={filePickerRef}
-            onChange={handleImageChange}
-            required
-            className="grid grid-cols-3 mb-4"
+            onChange={(e) => setFile(e.target.files[0])}
           />
-          {imagePreviewField && (
-            <div>
-              <img
-                src={imagePreviewField}
-                alt="Image Preview"
-                className="mt-5 mb-5 border-black-200 border-2"
-                style={{ width: "550px", height: "auto" }}
-              />
-            </div>
-          )}
-        </div>
-        <Button type="submit" gradientDuoTone="cyanToBlue" outline>
-          Create The Event
-        </Button>
-      </form>
-      <hr className="hr-line border-1 border-black mt-8 opacity-30 mb-3"></hr>
-      <h1 className="mt-5 mb-5 text-left font-semibold text-3xl">
-        Registered Events
-      </h1>
-      <form>
-        <div className="overflow-x-auto mb-3 border border-black-200 border-1">
-          <Table hoverable>
-            <Table.Head>
-              <Table.HeadCell>Event name</Table.HeadCell>
-
-              <Table.HeadCell>Start Date</Table.HeadCell>
-              <Table.HeadCell>End Date</Table.HeadCell>
-              <Table.HeadCell>Description</Table.HeadCell>
-              <Table.HeadCell>Edit</Table.HeadCell>
-              <Table.HeadCell>Delete</Table.HeadCell>
-            </Table.Head>
-            <Table.Body className="divide-y">
-              <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
-                <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
-                  Environment day Event
-                </Table.Cell>
-
-                <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
-                  20-03-24
-                </Table.Cell>
-                <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
-                  20-03-24
-                </Table.Cell>
-                <Table.Cell className="whitespace-  nowrap font-medium text-gray-900 dark:text-white">
-                  To celebrate the Environment day by being serious about the
-                  environment
-                </Table.Cell>
-                <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
-                <Link  onClick={() => setOpenModal(true)}><div className=" text-blue-500 ">Edit</div></Link>
-                </Table.Cell>
-                <Table.Cell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
-                <Link  onClick={() => setOpenModal(true)}><div className=" text-red-500 ">Delete</div></Link>
-                </Table.Cell>
-              </Table.Row>
-              
-             
-            </Table.Body>
-          </Table>
-
-        </div>
-      </form>
-      <Modal show={openModal} popup onClose={() => setOpenModal(false)}>
-        <Modal.Header />
-        <Modal.Body>
-        <div className="space-y-6">
-          <div className="grid sm:grid-cols-3 gap-4 w-full">
-          <div>
-            <label>
-              Event Name<span className="text-red-500 ml-1">*</span>
-            </label>
-            <TextInput
-              type="text"
-              placeholder="Event Name"
-              id="eventName"
-              onChange={handleChange}
-              required
-            />
-          </div>
-          <div>
-            <label>
-              Start Date<span className="text-red-500 ml-1">*</span>
-            </label>
-            <TextInput
-              type="date"
-              id="startDate"
-              onChange={handleChange}
-              required
-            />
-          </div>
-          <div>
-            <label>
-              End Date<span className="text-red-500 ml-1">*</span>
-            </label>
-            <TextInput
-              type="date"
-              id="endDate"
-              onChange={handleChange}
-              required
-            />
-          </div>
-          </div>
-          <div className="bio mb-3 w-full">
-            <div>
-              <label>
-                Description<span className="text-red-500 ml-1">*</span>
-              </label>
-              <br />
-              <Textarea
-                rows="4"
-                id="bio"
-                value={bio}
-                className="w-full"
-                maxLength={200}
-                onChange={(e) => setBio(e.target.value)}
-                required
-              />
-              <p className="text-gray-500 text-xs">
-                {200 - bio.length} characters remaining
-              </p>
-            </div>
-          </div>
-        
-          <div>
-            <label>
-              Upload Image<span className="text-red-500 ml-1">*</span>
-            </label>
-            <TextInput
-              type="file"
-              accept="image/*"
-              ref={filePickerRef}
-              onChange={handleImageChangeModal}
-              required
-              className="w-full"
-            />
-            {imagePreviewModal && (
-              <div>
-                <img
-                  src={imagePreviewModal}
-                  alt="Image Preview"
-                  className="mt-5 mb-5 border-black-200 border-2"
-                  style={{ width: "550px", height: "auto" }}
+          <Button
+            type="button"
+            gradientDuoTone="cyanToBlue"
+            size="sm"
+            outline
+            onClick={handleUpdloadImage}
+            disabled={imageUploadProgress}
+          >
+            {imageUploadProgress ? (
+              <div className="w-16 h-16">
+                <CircularProgressbar
+                  value={imageUploadProgress}
+                  text={`${imageUploadProgress || 0}%`}
                 />
               </div>
+            ) : (
+              "Upload Image"
             )}
-          </div>
-          </div>
-          <div className="flex justify-center">
-            <Button className="mt-4" color="blue" onClick={() => setOpenModal(false)}>
-              Update
-            </Button>
-          </div>
-        </Modal.Body>
-      </Modal>
+          </Button>
+        </div>
+        {imageUploadError && <Alert color="failure">{imageUploadError}</Alert>}
+        {formData.eventImage && (
+          <img
+            src={formData.eventImage}
+            alt="upload"
+            className="w-full h-72 object-cover"
+          />
+        )}
+        <ReactQuill
+          theme="snow"
+          placeholder="Write something..."
+          className="h-72 mb-12"
+          required
+          onChange={(value) => {
+            setFormData({ ...formData, eventDescription: value });
+          }}
+        />
+
+        <Button type="submit" gradientDuoTone="cyanToBlue">
+          Publish
+        </Button>
+        {publishError && (
+          <Alert className="mt-5" color="failure">
+            {publishError}
+          </Alert>
+        )}
+      </form>
     </div>
   );
 }
