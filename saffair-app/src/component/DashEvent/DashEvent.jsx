@@ -50,7 +50,7 @@ export default function CreatePost() {
           getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
             setImageUploadProgress(null);
             setImageUploadError(null);
-            setFormData({ ...formData, EventImage: downloadURL });
+            setFormData({ ...formData, eventImage: downloadURL });
           });
         }
       );
@@ -88,7 +88,7 @@ export default function CreatePost() {
     }
   };
 
-  // console.log(formData);
+  console.log(formData);
 
   return (
     <div className="p-3 max-w-3xl mx-auto mt-8 min-h-screen">
@@ -96,17 +96,6 @@ export default function CreatePost() {
         Create A Event
       </h1>
       <form className="flex flex-col gap-4" onSubmit={handleSubmit}>
-        {/* {currentUser.isAdmin && (
-          <Select
-            onChange={(e) =>
-              setFormData({ ...formData, readingType: e.target.value })
-            }
-          >
-            <option value="Blog">Blog</option>
-            <option value="News">News</option>
-            <option value="Update">Update</option>
-          </Select>
-        )} */}
         <div className="flex flex-col gap-4 sm:flex-row justify-between">
           <TextInput
             type="text"
@@ -118,17 +107,6 @@ export default function CreatePost() {
               setFormData({ ...formData, eventTitle: e.target.value })
             }
           />
-          {/* <Select
-            onChange={(e) =>
-              setFormData({ ...formData, category: e.target.value })
-            }
-          >
-            <option value="uncategorized">Select a category</option>
-            <option value="agriculture">Agriculture</option>
-            <option value="bollywood">Bollywood</option>
-            <option value="business">Business</option>
-    
-          </Select> */}
         </div>
         <div className="flex gap-4 items-center justify-between border-4 border-teal-500 border-dotted p-3">
           <FileInput

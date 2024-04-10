@@ -108,11 +108,11 @@ router.put("/addEntry/:eventId/:userId", async (req, res) => {
 //api for list event
 
 router.get("/Events", async (req, res) => {
-  res.json(await Event.find().sort({ createdAt: -1 }).limit(20));
+  res.json(await Event.find().sort({ createdAt: -1 }).limit(3));
 });
 
 //api for event page
-router.get("Events/:id", async (req, res) => {
+router.get("/:id", async (req, res) => {
   const { id } = req.params;
   const eventDoc = await Event.findById(id);
   res.json(eventDoc);
