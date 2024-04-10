@@ -29,6 +29,14 @@ const employmentTypes = [
   { value: "Internship", label: "Internship" },
   { value: "Trainee", label: "Trainee" },
 ];
+const fieldTypes = [
+  { value: "", label: "Select Field" },
+  { value: "Sales", label: "Sales" },
+  { value: "Project Management", label: "Project Management" },
+  { value: "IT", label: "IT" },
+ 
+];
+
 
 const genderOptions = [
   { value: "", label: "Select Gender" },
@@ -39,11 +47,11 @@ const genderOptions = [
 
 const gradeOptions = [
   { value: "", label: "Select Grade" },
-  { value: "A", label: "A" },
-  { value: "B", label: "B" },
-  { value: "C", label: "C" },
-  { value: "D", label: "D" },
-  { value: "E", label: "E" },
+  { value: "A", label: "85-100%" },
+  { value: "B", label: "70-84%" },
+  { value: "C", label: "55-69%" },
+  { value: "D", label: "35-54%" },
+  { value: "E", label: "0-34%" },
 ];
 
 export default function Contributors() {
@@ -164,7 +172,7 @@ export default function Contributors() {
       {currentUser.isReq ? (
         <Alert>SUBMITTED</Alert>
       ) : (
-        <div className="flex max-w-8xl mx-auto flex-col md:flex-row md:items-center gap-5">
+        <div className="flex max-w-8xl flex-col md:flex-row md:items-center gap-5">
           <div className="flex-1">
             <form
               className="flex-col gap-4 mx-4"
@@ -228,36 +236,7 @@ export default function Contributors() {
                   </div>
                 </div>
 
-                <div className="mb-2">
-                  <div className="flex gap-5">
-                    <div>
-                      <label>
-                        Date of Birth
-                        <span className="text-red-500 ml-1">*</span>
-                      </label>
-                      <TextInput
-                        type="date"
-                        id="dob"
-                        onChange={handleChange}
-                        required
-                      />
-                    </div>
-                    <div>
-                      <label>
-                        Gender<span className="text-red-500 ml-1">*</span>
-                      </label>
-                      <br />
-                      <select id="gender" onChange={handleChange} required>
-                        {genderOptions.map((option) => (
-                          <option key={option.value} value={option.value}>
-                            {option.label}
-                          </option>
-                        ))}
-                      </select>
-                    </div>
-                  </div>
-                </div>
-
+                
                 <label>Location</label>
                 <div className="grid grid-cols-1 mb-2 md:grid-cols-4 sm:grid-cols-2 gap-4 mt-2">
                   <div>
@@ -405,6 +384,40 @@ export default function Contributors() {
 
               {showEducationWork && (
                 <>
+                <div className="personaldetails mt-3">
+                    <p className="personaltag mb-4 font-bold">Personal Details</p>
+                <div className="mb-2">
+                  <div className="grid grid-cols-1 mb-3 md:flex sm:grid-cols-2 gap-5 ">
+                    <div>
+                      <label>
+                        Date of Birth
+                       
+                      </label>
+                      <TextInput
+                        type="date"
+                        id="dob"
+                        onChange={handleChange}
+                        
+                      />
+                    </div>
+                    <div>
+                      </div>
+                      <div>
+                      <label>
+                        Gender
+                      </label><br/>
+                      <select id="gender" onChange={handleChange} >
+                        {genderOptions.map((option) => (
+                          <option key={option.value} value={option.value}>
+                            {option.label}
+                          </option>
+                        ))}
+                      </select>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
                   <hr className="hr-line border-1 border-black mt-3 opacity-30 mb-3"></hr>
                   <div className="Edudetails">
                     <p className="edutag mb-4 font-bold">Education Details</p>
@@ -412,14 +425,14 @@ export default function Contributors() {
                       <div>
                         <label>
                           Institute Name
-                          <span className="text-red-500 ml-1">*</span>
+                         
                         </label>
                         <TextInput
                           type="text"
                           placeholder="institute Name"
                           id="instituteName"
                           onChange={handleChange}
-                          required
+                          
                         />
                       </div>
                       <div>
@@ -461,14 +474,14 @@ export default function Contributors() {
                     </div>
 
                     <div>
-                      <div className="flex gap-5">
+                      <div className="grid grid-cols-1 mb-3 md:flex sm:grid-cols-2 gap-5 ">
                         <div>
                           <label>
                             Start Date
                             <span className="text-red-500 ml-1">*</span>
                           </label>
                           <TextInput
-                            type="date"
+                            type="month"
                             id="startDate"
                             onChange={handleChange}
                             required
@@ -479,7 +492,7 @@ export default function Contributors() {
                             End Date<span className="text-red-500 ml-1">*</span>
                           </label>
                           <TextInput
-                            type="date"
+                            type="month"
                             id="endDate"
                             onChange={handleChange}
                             required
@@ -491,7 +504,20 @@ export default function Contributors() {
                   <hr className="hr-line border-1 border-black mt-3 opacity-30 mb-3"></hr>
                   <div className="workdetails">
                     <p className="workag mb-4 font-bold">Work Details</p>
-                    <div className="thenames grid grid-cols-1 md:grid-cols-4 sm:grid-cols-2 mb-2">
+                    <div className="thenames grid grid-cols-1 md:grid-cols-3 sm:grid-cols-2 mb-2">
+                    <div>
+                        <label>
+                          Company Name
+                          <span className="text-red-500 ml-1">*</span>
+                        </label>
+                        <TextInput
+                          type="text"
+                          placeholder="Company Name"
+                          id="companyName"
+                          onChange={handleChange}
+                          required
+                        />
+                      </div>
                       <div>
                         <label>
                           Position<span className="text-red-500 ml-1">*</span>
@@ -506,16 +532,21 @@ export default function Contributors() {
                       </div>
                       <div>
                         <label>
-                          Company Name
+                          Field
                           <span className="text-red-500 ml-1">*</span>
                         </label>
-                        <TextInput
-                          type="text"
-                          placeholder="Company Name"
-                          id="companyName"
+                        <br />
+                        <select
+                          id="fieldType"
                           onChange={handleChange}
                           required
-                        />
+                        >
+                          {fieldTypes.map((option) => (
+                            <option key={option.value} value={option.value}>
+                              {option.label}
+                            </option>
+                          ))}
+                        </select>
                       </div>
                       <div>
                         <label>
@@ -538,7 +569,7 @@ export default function Contributors() {
                     </div>
                     <label>Company Location</label>
                     <div className="grid grid-cols-1 mb-2 md:grid-cols-4 sm:grid-cols-2 gap-4 mt-2">
-                      <div>
+                      {/* <div>
                         <label>
                           Country<span className="text-red-500 ml-1">*</span>
                         </label>
@@ -549,7 +580,7 @@ export default function Contributors() {
                           onChange={handleChange}
                           required
                         />
-                      </div>
+                      </div> */}
                       <div>
                         <label>
                           City<span className="text-red-500 ml-1">*</span>
@@ -595,7 +626,7 @@ export default function Contributors() {
                             <span className="text-red-500 ml-1">*</span>
                           </label>
                           <TextInput
-                            type="date"
+                            type="month"
                             id="companyJoiningDate"
                             onChange={handleChange}
                             required
@@ -606,7 +637,7 @@ export default function Contributors() {
                             End Date<span className="text-red-500 ml-1">*</span>
                           </label>
                           <TextInput
-                            type="date"
+                            type="month"
                             id="companyEndDate"
                             onChange={handleChange}
                             required

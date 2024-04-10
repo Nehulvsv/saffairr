@@ -410,7 +410,7 @@ export default function WeatherUpdate() {
 
                       <div className="wea">
                         <div className="tago">
-                          <p className="thetag">Weather</p>
+                          <p className="thetag"></p>
                         </div>
                         {weather && weather.data && weather.data.main ? (
                           <div className="grido wthr">

@@ -1,0 +1,183 @@
+.about-us-container {
+    display: flex;
+    flex-direction: column;
+    margin-top: 40px;
+    border-radius: 20px;
+    font-family: sans-serif;
+    padding: 40px 25px;
+    color: black;
+    width: 100%;
+    
+  }
+  
+  .about-title {
+    font-size: 3rem;
+    font-weight: bold;
+    color: #2196BA;
+    margin-left: 60px;
+}
+
+.subtitle {
+    font-size: 2rem;
+    font-weight: bold;
+    font-family: sans-serif;
+    text-align: left;
+    margin-left: 60px;
+}
+
+.about-content {
+    font-size: 1rem;
+    margin-top: 20px;
+    width: 95%;
+}
+
+.about-description {
+    font-size: 1.3rem;
+    margin-left: 60px;
+    margin-bottom: 30px;
+    width: 100%;
+}
+
+.thanks-message {
+    font-size: 2rem;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 40px;
+    margin-top: 10px;
+}
+
+.great-day-message {
+    color: #2196ba;
+    font-weight: bold;
+    text-align: center;
+    font-size: 2rem;
+  }
+  
+  .separator {
+    border-bottom: solid 2px black;
+    width: 100%;
+    margin-top: 20px;
+  }
+  .vnm {
+    display: flex;
+    width: 75%;
+    justify-content: space-around;
+    /* margin: 20px 40px; */
+    margin: auto;
+    margin-top: 30px;
+    margin-bottom: 20px;
+    /* border: 1px solid #2196ba; */
+  }
+  
+  .vision,
+  .mission {
+    width: 450px;
+    border: 2px solid ;
+    border-radius: 15px;
+    padding: 5px;
+  }
+  
+  .hh1 {
+    color: #2196ba;
+    font-size: 30px;
+    font-weight: bold;
+    font-family: sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 15px;
+  }
+  
+  .vgoal,.mgoal {
+    font-size: 17px;
+    font-family: sans-serif;
+    text-align: center;
+    padding-bottom: 10px;
+  }
+ 
+  
+  @media (max-width: 1300px) {
+    .vision,
+    .mission {
+      width: 360px;
+    }
+  
+    .vnmphoto {
+      display: flex;
+      align-items: center;
+      width: 270px;
+    }
+    .about-us-container{
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .about-description{
+        margin-left: 0;
+    }
+    .about-content{
+        width: 100%;
+    }
+  }
+  
+  @media (max-width: 1100px) {
+    .vision,
+    .mission {
+      width: 350px;
+    }
+  
+    .vnmphoto {
+      display: flex;
+      align-items: center;
+      width: 250px;
+    }
+  }
+  
+  @media (max-width: 900px) {
+    /* .vnmphoto {
+      display: none;
+    } */
+  }
+  
+  @media (max-width: 800px) {
+    .vnmphoto {
+      /* display: none;  */
+      margin-bottom: 10px;
+    }
+  
+    .vnm {
+      flex-direction: column;
+      width: 100%;
+      justify-content: center;
+      align-items: center;
+      border: none;
+    }
+  
+    .mgoal {
+      text-align: center;
+    }
+    .vgoal {
+      text-align: center;
+    }
+  
+    .vision,
+    .mission {
+      width: 90%;
+      margin-bottom: 15px;
+    }
+  }
+  @media (max-width: 400px) {
+   .about-description{
+    font-size: 1rem;
+   }
+   .about-title{
+    font-size: 1.2rem;
+   }
+   .thanks-message{
+    font-size: 1.2rem;
+   }
+   .great-day-message{
+    font-size: 1.2rem;
+   }
+    }
+  
