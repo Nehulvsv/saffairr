@@ -3,33 +3,47 @@ import "./event.css";
 import { Link } from "react-router-dom";
 
 const Event = () => {
-  // const [selectedOption, setSelectedOption] = useState("");
   const [event, setEvent] = useState([]);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
   useEffect(() => {
-    try {
-      const fetchData = async () => {
-        let response = await fetch("http://localhost:6600/api/events/Events");
+    const fetchData = async () => {
+      try {
+        const response = await fetch("http://localhost:6600/api/events/Events");
         if (!response.ok) {
-          alert("Error while fetching events!");
-          throw new Error("HTTP error! status" + response.status);
-        } else {
-          const data = await response.json();
-          setEvent(data);
+          throw new Error("Error while fetching events!");
         }
-      };
-      fetchData();
-    } catch (e) {
-      console.log(e);
-    }
+        const data = await response.json();
+        setEvent(data);
+      } catch (error) {
+        console.error(error);
+        // Handle error
+      }
+    };
+    fetchData();
   }, []);
-  console.log(event);
-  event.map((val) => console.log(val.eventImage));
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImageIndex((prevIndex) => (prevIndex + 1) % event.length);
+    }, 5000);
+
+    return () => clearInterval(interval);
+  }, [event]);
+
+  const goToPreviousImage = () => {
+    setCurrentImageIndex((prevIndex) => (prevIndex - 1 + event.length) % event.length);
+  };
+
+  const goToNextImage = () => {
+    setCurrentImageIndex((prevIndex) => (prevIndex + 1) % event.length);
+  };
+
   return (
     <>
-      {event.map((val) => (
-        <div className="main">
-          <div className="mt-20 w-full  bg-red-200 items-center">
-            {/* <Link to="/Showevent" target="_blank"> */}
+      {event.map((val, index) => (
+        <div key={val._id} className={`main ${index === currentImageIndex ? "" : "hidden"}`}>
+          <div className="mt-20 w-full  bg-blue-200 items-center">
             <Link to={`/events/${val._id}`} className="link">
               <img
                 src={val.eventImage}
@@ -37,6 +51,13 @@ const Event = () => {
                 alt="event"
               />
             </Link>
+            {index === currentImageIndex && (
+              <div className="manual-controls">
+                <button onClick={goToPreviousImage} className="prev-button">&lt;</button>
+                {/* <span>{currentImageIndex + 1}/{event.length}</span> */}
+                <button onClick={goToNextImage} className="next-button">&gt;</button>
+              </div>
+            )}
           </div>
         </div>
       ))}
