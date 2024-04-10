@@ -214,12 +214,11 @@ export default function Navbar({ _id }) {
                   className="flex items-center p-0.5 rounded-full"
                   style={{ border: "0.5px solid #2196ba" }}
                 >
-                   <Avatar
+                  <Avatar
                     alt="user"
                     img={currentUser.profilePicture}
                     rounded
                     className="userprofile"
-                  
                   />
                   <p className="mx-2 text-l hidden sm:block">
                     {currentUser.username}
@@ -231,13 +230,8 @@ export default function Navbar({ _id }) {
                     img="../assets/coin2.png"
                     rounded
                     className="userprofile"
-                  
                   />
-                   <p className="mx-2 text-l hidden sm:block">
-                  100
-                  </p>
-                 
-                  
+                  <p className="mx-2 text-l hidden sm:block">100</p>
                 </div>
               </>
             }
@@ -255,13 +249,13 @@ export default function Navbar({ _id }) {
               <Dropdown.Item>Be a Contributor</Dropdown.Item>
             </Link>
             <Link to="/dashboard?tab=mycoins" onClick={scrollToTop}>
-              <Dropdown.Item >
-              <div >
-            <span>{userData.totalCoins}</span> coins
-          </div>
+              <Dropdown.Item>
+                <div>
+                  <span>{userData.totalCoins}</span> coins
+                </div>
               </Dropdown.Item>
             </Link>
-            
+
             <Dropdown.Divider />
             <Dropdown.Item
               onClick={() => {
@@ -317,7 +311,7 @@ export default function Navbar({ _id }) {
             </div>
 
             <Link to="/" style={{ textDecoration: "none" }}>
-              <a className="dropdown-item" href="#" onClick={toggleDropdown} >
+              <a className="dropdown-item" href="#" onClick={toggleDropdown}>
                 Home
               </a>
             </Link>
