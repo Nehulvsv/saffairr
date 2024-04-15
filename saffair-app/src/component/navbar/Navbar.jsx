@@ -227,7 +227,7 @@ export default function Navbar({ _id }) {
                     rounded
                     className="userprofile"
                   />
-                  <p className="mx-2 text-l hidden sm:block">100</p>
+                  <p className="mx-2 text-l hidden sm:block">{coin}</p>
                 </div>
               </>
             }
@@ -270,7 +270,7 @@ export default function Navbar({ _id }) {
                   borderRadius: "5px",
                 }}
               >
-                join Community
+                Join Community
               </button>
             </Link>
           </div>
