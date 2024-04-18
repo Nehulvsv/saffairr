@@ -3,14 +3,14 @@ import './privacypolicy.css'
 
 const PrivacypolicyPage = () => {
     return (
-        <div className=" flex flex-col mt-20 sm:mx-20 bg-gray-100 border-2 border-gray-400 mb-5" style={{borderRadius:'20px', fontFamily: 'Sans-serif',  padding: '40px', color: 'black' }}>
-            <div className="patch" style={{backgroundColor:'#2196BA', height: '120px',marginBottom:'40px',borderRadius:'10px'}}>
-                    <div class="logoContainer mt-5 flex justify-center items-center mx-auto">
+        <div className=" flex flex-col mt-20 sm:mx-20  mb-5" style={{borderRadius:'20px', fontFamily: 'Sans-serif',  padding: '40px', color: 'black' }}>
+            {/* <div className="patch" >
+                     <div class="logoContainer mt-5 flex justify-center items-center mx-auto">
                      <img class="saffairlogo" src="./assets/logofooter.png" alt="logo" height='50px' />
-                 </div>
+                 </div> 
    
-            </div><br/>
-             <h2 className="text-center font-bold sm:text-3xl mb-4">PRIVACY POLICY</h2><br/>
+            </div><br/> */}
+             <h2 className="text-center font-bold sm:text-3xl  mt-5 flex justify-center items-center   mb-4" style={{backgroundColor:'#2196BA',color:'white', fontFamily:'Raleway', height: '120px',marginBottom:'40px',borderRadius:'10px'}}>PRIVACY POLICY</h2><br/>
             <div className="privacypolicydata sm:text-2xl">
             <p>Effective date: 2024-03-10</p>
             <p>1. <b>Introduction</b></p>

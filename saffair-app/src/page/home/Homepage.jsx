@@ -51,7 +51,7 @@ export default function Homepage() {
             <h2 className="text-2xl font-bold">Readings</h2>
             <hr
               style={{
-                width: "70%",
+                width: "95%",
                 height: "2px",
                 margin: "10px",
                 backgroundColor: "#2196BA",

@@ -126,7 +126,7 @@ export default function EventPage() {
             <div className="flex justify-center text-3xl mb-4">Event name: {eventInfo.eventTitle}</div>
             <img src={eventInfo.eventImage} className="w-full h-screen object-cover" alt="eventImage" />
             <div
-              className="post-content   mb-6 mt-4 bg-red-200"
+              className="post-content   mb-6 mt-4  ml-2"
               dangerouslySetInnerHTML={{ __html: eventInfo.eventDescription }}
             />
 

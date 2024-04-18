@@ -26,9 +26,10 @@ const ContactUs = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const serviceID = "service_y83p4py";
-    const templateID = "template_fuis09h";
-    const publicKey = "GuGLkhlrvX2f8Kzoq";
+    // add the below details from emailjs
+    const serviceID = "";
+    const templateID = "";
+    const publicKey = "";
 
     const templateParams = {
       from_name: uname,
